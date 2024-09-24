@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c55w6px34tlpd"]
+
+[ext_resource type="PackedScene" uid="uid://crge7uy3ydurx" path="res://platform.tscn" id="1_fcl8u"]
+[ext_resource type="Texture2D" uid="uid://bsfrcdm0gjdxo" path="res://graphics/bg.jpg" id="1_wqwup"]
+[ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://player.tscn" id="2_5qd88"]
+
+[node name="World" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+texture_repeat = 2
+position = Vector2(2355, 212)
+scale = Vector2(2, 2)
+texture = ExtResource("1_wqwup")
+region_enabled = true
+region_rect = Rect2(-1001.65, 0, 3172.64, 489)
+
+[node name="Player" parent="." instance=ExtResource("2_5qd88")]
+position = Vector2(11, 211)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Platform" parent="." instance=ExtResource("1_fcl8u")]
+position = Vector2(-34, 279)
+
+[node name="Platform" parent="Platform" instance=ExtResource("1_fcl8u")]
+position = Vector2(602, 259)

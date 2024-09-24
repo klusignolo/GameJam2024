@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cesvwbsp15wqc"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_nb6po"]
+[ext_resource type="Texture2D" uid="uid://dxpud7t14wl2q" path="res://graphics/dog.png" id="2_t5yf2"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_nb6po")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -19, -14, -8, -19, 16, 11, 16, 16, 9, 19, 4, 14, -5, 7, -2, 4, -17)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_t5yf2")
