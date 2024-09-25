@@ -9,7 +9,7 @@ platform_a = NodePath("PlatformA")
 platform_b = NodePath("PlatformB")
 
 [node name="PlatformA" parent="." instance=ExtResource("1_p0krb")]
-position = Vector2(646, 6)
+position = Vector2(640, 0)
 
 [node name="PlatformB" parent="." instance=ExtResource("1_p0krb")]
-position = Vector2(1924, 6)
+position = Vector2(1920, 0)

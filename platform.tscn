@@ -3,15 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://brv5e6gq0nexl" path="res://graphics/rope.png" id="1_56utm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y1op"]
-size = Vector2(1280, 4)
+size = Vector2(1280, 5)
 
 [node name="Platform" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.500025, -1)
-scale = Vector2(0.667188, 0.5)
+position = Vector2(0.999987, -1)
+scale = Vector2(0.685417, 0.5)
 texture = ExtResource("1_56utm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(0.458824, 0.278431, 1, 1)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0y1op")

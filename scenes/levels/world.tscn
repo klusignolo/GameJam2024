@@ -1,31 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://c55w6px34tlpd"]
+[gd_scene load_steps=5 format=3 uid="uid://c55w6px34tlpd"]
 
+[ext_resource type="Script" path="res://scenes/levels/world.gd" id="1_r0sea"]
 [ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://scenes/player/player.tscn" id="2_fmr4e"]
 [ext_resource type="Texture2D" uid="uid://bsck1vlf4wqbw" path="res://graphics/temp_background.png" id="2_r2m2r"]
 [ext_resource type="PackedScene" uid="uid://b03vsrmvi3hea" path="res://scenes/objects/ground.tscn" id="3_x4533"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_r0sea")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_fmr4e")]
-position = Vector2(255, 501)
+position = Vector2(653, 680)
 metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(1280, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_r2m2r")
 centered = false
 
 [node name="Ground" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_x4533")]
-position = Vector2(8, 869)
-camera = NodePath("../Player/Camera2D")
+position = Vector2(0, 710)
+camera = NodePath("../Camera")
