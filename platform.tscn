@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://crge7uy3ydurx"]
+[gd_scene load_steps=3 format=3 uid="uid://crge7uy3ydurx"]
+
+[ext_resource type="Texture2D" uid="uid://brv5e6gq0nexl" path="res://graphics/rope.png" id="1_56utm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y1op"]
-size = Vector2(609, 20)
+size = Vector2(1280, 4)
 
 [node name="Platform" type="StaticBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(294.5, 0)
-shape = SubResource("RectangleShape2D_0y1op")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.500025, -1)
+scale = Vector2(0.667188, 0.5)
+texture = ExtResource("1_56utm")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.32549, 0.32549, 0.945098, 1)
-polygon = PackedVector2Array(-10, -9, -10, 9, 599, 10, 598, -10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0.458824, 0.278431, 1, 1)
+shape = SubResource("RectangleShape2D_0y1op")

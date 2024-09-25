@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b03vsrmvi3hea"]
+
+[ext_resource type="Script" path="res://scenes/objects/ground.gd" id="1_1ern5"]
+[ext_resource type="PackedScene" uid="uid://crge7uy3ydurx" path="res://platform.tscn" id="1_p0krb"]
+
+[node name="Ground" type="Node2D" node_paths=PackedStringArray("platform_a", "platform_b")]
+script = ExtResource("1_1ern5")
+platform_a = NodePath("PlatformA")
+platform_b = NodePath("PlatformB")
+
+[node name="PlatformA" parent="." instance=ExtResource("1_p0krb")]
+position = Vector2(646, 6)
+
+[node name="PlatformB" parent="." instance=ExtResource("1_p0krb")]
+position = Vector2(1924, 6)

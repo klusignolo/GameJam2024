@@ -2,18 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://scenes/player/player.tscn" id="2_fmr4e"]
 [ext_resource type="Texture2D" uid="uid://bsck1vlf4wqbw" path="res://graphics/temp_background.png" id="2_r2m2r"]
-[ext_resource type="PackedScene" uid="uid://crge7uy3ydurx" path="res://platform.tscn" id="3_w5bx0"]
+[ext_resource type="PackedScene" uid="uid://b03vsrmvi3hea" path="res://scenes/objects/ground.tscn" id="3_x4533"]
 
 [node name="World" type="Node2D"]
-
-[node name="Platform" parent="." instance=ExtResource("3_w5bx0")]
-position = Vector2(21, 531)
 
 [node name="Player" parent="." instance=ExtResource("2_fmr4e")]
 position = Vector2(255, 501)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -27,3 +25,7 @@ metadata/_edit_group_ = true
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_r2m2r")
 centered = false
+
+[node name="Ground" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_x4533")]
+position = Vector2(8, 869)
+camera = NodePath("../Player/Camera2D")
