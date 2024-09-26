@@ -16,7 +16,7 @@ class PlatformRenderLayout:
 func _ready():
 	current_floor = platform_a
 	
-func _process(delta):
+func _process(_delta):
 	var current_platform_info = which_platform_is_character_on()
 	var current_platform: StaticBody2D = current_platform_info[0]
 	var other_platform: StaticBody2D = current_platform_info[1]

@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c55w6px34tlpd"]
+[gd_scene load_steps=6 format=3 uid="uid://c55w6px34tlpd"]
 
 [ext_resource type="Script" path="res://scenes/levels/world.gd" id="1_r0sea"]
 [ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://scenes/player/player.tscn" id="2_fmr4e"]
-[ext_resource type="Texture2D" uid="uid://bsck1vlf4wqbw" path="res://graphics/temp_background.png" id="2_r2m2r"]
+[ext_resource type="PackedScene" uid="uid://qiep14nqugaj" path="res://globals/ui.tscn" id="2_s2phx"]
+[ext_resource type="Texture2D" uid="uid://caj0aniegyjmd" path="res://graphics/backgrounds/background_one_blur.png" id="3_2ourq"]
 [ext_resource type="PackedScene" uid="uid://b03vsrmvi3hea" path="res://scenes/objects/ground.tscn" id="3_x4533"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_r0sea")
+
+[node name="UI" parent="." instance=ExtResource("2_s2phx")]
+
+[node name="StartingPosition" type="Marker2D" parent="."]
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -19,12 +24,12 @@ metadata/_edit_group_ = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1280, 0)
+motion_mirroring = Vector2(1544, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("2_r2m2r")
+texture = ExtResource("3_2ourq")
 centered = false
 
 [node name="Ground" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_x4533")]

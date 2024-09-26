@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bximdub7e4d1c"]
+
+[ext_resource type="Script" path="res://scenes/objects/rope_swing.gd" id="1_6xwyy"]
+[ext_resource type="Texture2D" uid="uid://brv5e6gq0nexl" path="res://graphics/rope.png" id="1_rwslk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfho2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbh48"]
+size = Vector2(285, 2)
+
+[node name="RopeSwing" type="Node2D"]
+script = ExtResource("1_6xwyy")
+
+[node name="Anchor" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor"]
+shape = SubResource("CircleShape2D_wfho2")
+
+[node name="Rope" type="RigidBody2D" parent="."]
+position = Vector2(-130, 0)
+collision_layer = 2
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Rope"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_rwslk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope"]
+shape = SubResource("RectangleShape2D_cbh48")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../Anchor")
+node_b = NodePath("../Rope")
