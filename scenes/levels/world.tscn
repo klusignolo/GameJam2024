@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/levels/world.gd" id="1_r0sea"]
 [ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://scenes/player/player.tscn" id="2_fmr4e"]
-[ext_resource type="PackedScene" uid="uid://qiep14nqugaj" path="res://globals/ui.tscn" id="2_s2phx"]
+[ext_resource type="PackedScene" path="res://globals/ui.tscn" id="2_s2phx"]
 [ext_resource type="Texture2D" uid="uid://caj0aniegyjmd" path="res://graphics/backgrounds/background_one_blur.png" id="3_2ourq"]
 [ext_resource type="TileSet" uid="uid://bgksmexnig22v" path="res://tilesets/platform_tiles.tres" id="3_s7u8g"]
 
@@ -25,6 +25,7 @@ tile_set = ExtResource("3_s7u8g")
 
 [node name="Player" parent="." instance=ExtResource("2_fmr4e")]
 position = Vector2(653, 680)
+collision_mask = 6
 metadata/_edit_group_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

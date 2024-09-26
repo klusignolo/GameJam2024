@@ -24,3 +24,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	var collision = get_last_slide_collision()
+	if collision:
+		var collision_rid = collision.get_collider_rid()
+		if PhysicsServer2D.body_get_collision_layer(collision_rid) == Globals.GROUND_LAYER:
+			UI.show_return_to_start_message()
