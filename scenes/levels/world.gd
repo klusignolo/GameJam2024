@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _ready() -> void:
 	send_player_to_start()
 

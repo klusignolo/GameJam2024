@@ -11,6 +11,12 @@ height = 86.0
 collision_layer = 2
 script = ExtResource("1_8sclg")
 
+[node name="BottomCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, 69, 7, 81, 4, 81, -2, 81, -6, 81)
+
+[node name="TopCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18, -59, -11, -66, -5, -68, 2, -65, 7, -58, 17, -66, 10, -74, 1, -78, -8, -77, -16, -71, -20, -66)
+
 [node name="RingBottom" type="Sprite2D" parent="."]
 z_index = -4096
 z_as_relative = false
@@ -24,12 +30,6 @@ z_as_relative = false
 position = Vector2(-0.0999947, 2.7)
 scale = Vector2(0.2, 0.3)
 texture = ExtResource("2_nsska")
-
-[node name="BottomCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-14, 70, -7, 71, 0, 70, 4, 66, 13, 74, 9, 81, -2, 82, -12, 79)
-
-[node name="TopCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-18, -59, -11, -66, -5, -68, 2, -65, 7, -58, 17, -66, 10, -74, 1, -78, -8, -77, -16, -71, -20, -66)
 
 [node name="RingExit" type="Area2D" parent="."]
 position = Vector2(27, 3)
