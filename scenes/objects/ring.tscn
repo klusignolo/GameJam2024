@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl1owjckbnl1y"]
+
+[ext_resource type="Script" path="res://scenes/objects/ring.gd" id="1_8sclg"]
+[ext_resource type="Texture2D" uid="uid://bd500m7n0lset" path="res://graphics/objects/ring_bottom.png" id="1_v6fag"]
+[ext_resource type="Texture2D" uid="uid://c004cv7hxox17" path="res://graphics/objects/ring_top.png" id="2_nsska"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rymvw"]
+height = 86.0
+
+[node name="Ring" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_8sclg")
+
+[node name="RingBottom" type="Sprite2D" parent="."]
+z_index = -4096
+z_as_relative = false
+position = Vector2(-0.0999947, 2.7)
+scale = Vector2(0.2, 0.3)
+texture = ExtResource("1_v6fag")
+
+[node name="RingTop" type="Sprite2D" parent="."]
+z_index = 4096
+z_as_relative = false
+position = Vector2(-0.0999947, 2.7)
+scale = Vector2(0.2, 0.3)
+texture = ExtResource("2_nsska")
+
+[node name="BottomCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14, 70, -7, 71, 0, 70, 4, 66, 13, 74, 9, 81, -2, 82, -12, 79)
+
+[node name="TopCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-18, -59, -11, -66, -5, -68, 2, -65, 7, -58, 17, -66, 10, -74, 1, -78, -8, -77, -16, -71, -20, -66)
+
+[node name="RingExit" type="Area2D" parent="."]
+position = Vector2(27, 3)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RingExit"]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_rymvw")
+
+[node name="RingEntry" type="Area2D" parent="."]
+position = Vector2(-30, 2)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RingEntry"]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_rymvw")
+
+[connection signal="body_entered" from="RingExit" to="." method="_on_ring_exit_body_entered"]
+[connection signal="body_entered" from="RingEntry" to="." method="_on_ring_entry_body_entered"]

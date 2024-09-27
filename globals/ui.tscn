@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://qiep14nqugaj"]
+[gd_scene load_steps=3 format=3 uid="uid://qiep14nqugaj"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_i1fot"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7efof"]
+font_size = 31
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_i1fot")
 
-[node name="ReturnToStartLabel" type="MarginContainer" parent="."]
-visible = false
+[node name="ReturnToStartContainer" type="MarginContainer" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -16,7 +18,19 @@ grow_vertical = 0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Label" type="Label" parent="ReturnToStartLabel"]
+[node name="Label" type="Label" parent="ReturnToStartContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Press F to return to start"
+
+[node name="RingScoreContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+
+[node name="ScoreLabel" type="Label" parent="RingScoreContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_7efof")
+horizontal_alignment = 1

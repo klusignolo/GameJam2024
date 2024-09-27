@@ -12,4 +12,5 @@ func _process(_delta: float) -> void:
 	
 func send_player_to_start():
 	$Player.position = $StartingPosition.position
+	Globals.ring_score = 0
 	UI.hide_return_to_start_message()
