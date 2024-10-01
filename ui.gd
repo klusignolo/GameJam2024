@@ -3,6 +3,11 @@ extends CanvasLayer
 @onready var instruction_label = $InstructionLabelContainer/Label
 @onready var score_label = $RingScoreContainer/ScoreLabel
 
+func show_balance_bar():
+	$RopeBalanceBar.begin_balance()
+	
+func hide_balance_bar():
+	$RopeBalanceBar.end_balance()
 
 func show_phase_message():
 	instruction_label.visible = true

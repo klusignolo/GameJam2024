@@ -9,9 +9,12 @@ const FLOAT_GRAVITY = .5
 const NORMAL_GRAVITY = 2
 var gravity = 2
 var can_lose_float = true
+var can_jump := true
 signal fell_down
 
 func _physics_process(delta: float) -> void:
+	# Fall through ropes if falling
+	set_collision_mask_value(4, not Globals.player_lost_balance)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta * gravity
@@ -27,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		set_collision_mask_value(5, true)
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump_float") and is_on_floor():
+	if Input.is_action_just_pressed("jump_float") and is_on_floor() and can_jump:
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_pressed("jump_float") and not is_on_floor() and velocity.y > 0:
@@ -56,20 +59,29 @@ func _physics_process(delta: float) -> void:
 	
 	var collision = get_last_slide_collision()
 	if collision:
+		can_jump = true
+		speed = BASE_SPEED
 		var collision_rid = collision.get_collider_rid()
 		var collition_layer_id = PhysicsServer2D.body_get_collision_layer(collision_rid)
-		if collition_layer_id == Globals.GROUND_LAYER_ID:
+		var is_on_rope = collition_layer_id == Globals.ROPE_LAYER_ID
+		var is_on_ground = collition_layer_id == Globals.GROUND_LAYER_ID
+		var is_touching_wall = collition_layer_id == Globals.WALL_LAYER_ID
+		var is_touching_object = collition_layer_id == Globals.OBJECTS_LAYER_ID
+
+		if is_on_ground:
 			fell_down.emit()
-		elif collition_layer_id == Globals.ROPE_LAYER_ID:
+		if is_on_rope:
+			UI.show_balance_bar()
+			can_jump = false
 			speed = SLOW_SPEED
-		elif collition_layer_id == Globals.WALL_LAYER_ID:
+		else:
+			UI.hide_balance_bar()
+		if is_touching_wall:
 			UI.show_phase_message()
-		elif collition_layer_id == Globals.OBJECTS_LAYER_ID:
-			pass
 		else:
 			UI.hide_phase_message()
-			speed = BASE_SPEED
-			
+		if is_touching_object:
+			pass
 
 
 func _on_float_timer_timeout() -> void:

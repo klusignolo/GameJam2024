@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" path="res://ui.gd" id="1_i1fot"]
 [ext_resource type="Script" path="res://globals/level_timer_container.gd" id="2_wc0up"]
+[ext_resource type="Script" path="res://globals/rope_balance_bar.gd" id="3_1y8rq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7efof"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_fkhmf"]
-font_size = 24
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_i1fot")
@@ -69,31 +67,116 @@ offset_bottom = 31.0
 text = "000"
 horizontal_alignment = 2
 
-[node name="FloatBarContainer" type="MarginContainer" parent="."]
+[node name="FloatBarContainer" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -354.0
-offset_top = -40.0
+offset_left = -378.0
+offset_top = -45.0
+offset_right = -35.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 30
 
 [node name="ProgressBar" type="ProgressBar" parent="FloatBarContainer"]
 modulate = Color(0.0568784, 0.56692, 0.950281, 1)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -133.5
+offset_right = 133.5
+offset_bottom = 23.0
+grow_horizontal = 2
 size_flags_vertical = 1
 step = 1.0
 value = 100.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="FloatBarContainer"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -93.5
+offset_top = -23.0
+offset_right = 93.5
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Float Remaining"
-label_settings = SubResource("LabelSettings_fkhmf")
-horizontal_alignment = 2
+horizontal_alignment = 1
+
+[node name="RopeBalanceBar" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -40.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_1y8rq")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="RopeBalanceBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.5
+offset_top = -23.0
+offset_right = 52.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Rope Balance"
+
+[node name="HScrollBar" type="HScrollBar" parent="RopeBalanceBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.5
+offset_right = 109.5
+offset_bottom = 19.0
+grow_horizontal = 2
+max_value = 1000.0
+value = 500.0
+
+[node name="ColorRect" type="ColorRect" parent="RopeBalanceBar/HScrollBar"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 9.0
+offset_right = 27.0
+offset_bottom = 19.0
+color = Color(0.671206, 0, 0.0532637, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="RopeBalanceBar/HScrollBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.5
+offset_top = 9.0
+offset_right = 1.5
+offset_bottom = 19.0
+grow_horizontal = 2
+
+[node name="ColorRect2" type="ColorRect" parent="RopeBalanceBar/HScrollBar"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 9.0
+offset_right = 197.0
+offset_bottom = 19.0
+color = Color(0.671206, 0, 0.0532637, 1)

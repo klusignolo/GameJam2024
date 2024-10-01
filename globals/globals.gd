@@ -6,6 +6,7 @@ const OBJECTS_LAYER_ID := 4
 const GROUND_LAYER_ID := 4
 const ROPE_LAYER_ID := 8
 const WALL_LAYER_ID := 16
+var player_lost_balance = false
 var player_is_on_floor := true:
 	set(value):
 		if player_is_on_floor != value:
@@ -30,6 +31,6 @@ func regenerate_float():
 	if player_is_on_floor:
 		await get_tree().create_timer(.1).timeout
 		if float_remaining < 100:
-			float_remaining += 1
+			float_remaining += 5
 			regenerate_float()
 			

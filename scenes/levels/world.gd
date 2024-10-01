@@ -1,5 +1,5 @@
-extends Node2D
 class_name WorldParent
+extends Node2D
 
 var player_is_at_start := true
 func _ready() -> void:
@@ -10,6 +10,8 @@ func _process(_delta: float) -> void:
 	
 	if $Player.position.distance_to($StartingPosition.position) > 50 and player_is_at_start:
 		UI.start_level_timer()
+	if $Player.position.distance_to($EndingPosition.position) < 50:
+		UI.stop_level_timer()
 	
 func send_player_to_start():
 	$Player.position = $StartingPosition.position

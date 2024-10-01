@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxpul8dh8snid"]
+
+[ext_resource type="Texture2D" uid="uid://hlouf0qqojcb" path="res://graphics/lights/can_light.png" id="1_i3u3d"]
+[ext_resource type="Script" path="res://scenes/objects/can_light.gd" id="1_vil0l"]
+[ext_resource type="Texture2D" uid="uid://qmy6k82urdl8" path="res://graphics/lights/direction_light.png" id="2_s1eth"]
+
+[node name="CanLight" type="Node2D"]
+script = ExtResource("1_vil0l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i3u3d")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+modulate = Color(1, 1, 1, 0.560784)
+light_mask = 2
+position = Vector2(178, 184)
+color = Color(7.70092e-06, 0.912539, 0.921391, 1)
+energy = 1.87
+shadow_filter = 1
+shadow_filter_smooth = 2.9
+texture = ExtResource("2_s1eth")
+texture_scale = 0.4
+height = 80.0

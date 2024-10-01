@@ -9,11 +9,6 @@ z_index = 1
 collision_mask = 30
 script = ExtResource("1_nb6po")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.389732, 0.516629, 0.531861, 0.870588)
-energy = 2.02
-texture = ExtResource("3_dg1ya")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-12, -19, -14, -8, -19, 16, 11, 16, 16, 9, 19, 4, 14, -5, 7, -2, 4, -17)
 
@@ -25,5 +20,10 @@ texture = ExtResource("2_t5yf2")
 [node name="FloatTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.15
+texture = ExtResource("3_dg1ya")
+texture_scale = 0.2
 
 [connection signal="timeout" from="FloatTimer" to="." method="_on_float_timer_timeout"]
