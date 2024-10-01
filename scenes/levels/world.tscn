@@ -8,6 +8,10 @@
 [node name="World" type="Node2D"]
 script = ExtResource("1_r0sea")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.446777, 0.446777, 0.446777, 1)
+blend_mode = 1
+
 [node name="StartingPosition" type="Marker2D" parent="."]
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -29,6 +33,7 @@ metadata/_edit_group_ = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.678944, 0.678944, 0.678944, 1)
 motion_mirroring = Vector2(1544, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true

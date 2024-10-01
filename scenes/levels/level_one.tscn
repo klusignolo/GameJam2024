@@ -8,10 +8,10 @@
 [node name="World" instance=ExtResource("1_2jvpn")]
 script = ExtResource("2_d2wnq")
 
-[node name="StartingPosition" parent="." index="0"]
+[node name="StartingPosition" parent="." index="1"]
 position = Vector2(203, 202)
 
-[node name="Player" parent="." index="3"]
+[node name="Player" parent="." index="4"]
 position = Vector2(637, 675)
 
 [node name="Ring4" parent="Rings" index="0" instance=ExtResource("2_u82bu")]
