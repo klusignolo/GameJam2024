@@ -5,42 +5,43 @@ const SLOW_SPEED = 100.0
 var speed = BASE_SPEED
 const JUMP_VELOCITY = -650.0
 const FLOAT_VELOCITY = 50
-var GRAVITY = 2
-var float_meter = 100
+const FLOAT_GRAVITY = .5
+const NORMAL_GRAVITY = 2
+var gravity = 2
 var can_lose_float = true
 signal fell_down
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * GRAVITY
+		velocity += get_gravity() * delta * gravity
+		Globals.player_is_on_floor = false
+	else:
+		Globals.player_is_on_floor = true
 		
 	if Input.is_action_just_pressed("phase"):
-		UI.start_level_timer()
 		$Sprite2D.self_modulate.a = 0.5
-		set_collision_mask_value(2, false)
-		set_collision_mask_value(4, false)
-		set_collision_mask_value(8, false)
+		set_collision_mask_value(5, false)
 	elif Input.is_action_just_released("phase"):
 		$Sprite2D.self_modulate.a = 1.0
-		set_collision_mask_value(2, true)
-		set_collision_mask_value(4, true)
-		set_collision_mask_value(8, true)
+		set_collision_mask_value(5, true)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump_float") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_pressed("jump_float") and not is_on_floor() and velocity.y > 0:
-		velocity.y = FLOAT_VELOCITY
-		GRAVITY = .05
-		if can_lose_float:
-			can_lose_float = false
-			float_meter -= 10
-			$FloatTimer.start()
-			print(float_meter)
+		if Globals.float_remaining > 0:
+			velocity.y = FLOAT_VELOCITY
+			gravity = FLOAT_GRAVITY
+			if can_lose_float:
+				can_lose_float = false
+				Globals.float_remaining -= 5
+				$FloatTimer.start()
+		else:
+			gravity = NORMAL_GRAVITY
 	else:
-		GRAVITY = 2
+		gravity = NORMAL_GRAVITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -61,7 +62,10 @@ func _physics_process(delta: float) -> void:
 			fell_down.emit()
 		elif collition_layer_id == Globals.ROPE_LAYER_ID:
 			speed = SLOW_SPEED
+		elif collition_layer_id == Globals.WALL_LAYER_ID:
+			UI.show_phase_message()
 		else:
+			UI.hide_phase_message()
 			speed = BASE_SPEED
 			
 

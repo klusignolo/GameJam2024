@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rymvw"]
 height = 86.0
 
-[node name="Ring" type="StaticBody2D"]
+[node name="Ring" type="StaticBody2D" groups=["Ring"]]
 collision_layer = 2
 script = ExtResource("1_8sclg")
 

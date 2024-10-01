@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bu4fylwev7iv0" path="res://graphics/player/dog.png" id="2_t5yf2"]
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 14
+z_index = 1
+collision_mask = 30
 script = ExtResource("1_nb6po")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
