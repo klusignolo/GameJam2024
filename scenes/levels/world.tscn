@@ -8,7 +8,9 @@
 [node name="World" type="Node2D"]
 script = ExtResource("1_r0sea")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
 color = Color(0.446777, 0.446777, 0.446777, 1)
 blend_mode = 1
 

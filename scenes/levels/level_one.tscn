@@ -1,18 +1,30 @@
-[gd_scene load_steps=5 format=4 uid="uid://jjg8cyl3n5va"]
+[gd_scene load_steps=6 format=4 uid="uid://jjg8cyl3n5va"]
 
 [ext_resource type="PackedScene" uid="uid://c55w6px34tlpd" path="res://scenes/levels/world.tscn" id="1_2jvpn"]
 [ext_resource type="Script" path="res://scenes/levels/level_one.gd" id="2_d2wnq"]
 [ext_resource type="TileSet" uid="uid://bgksmexnig22v" path="res://tilesets/platform_tiles.tres" id="2_d4x4s"]
 [ext_resource type="PackedScene" uid="uid://bl1owjckbnl1y" path="res://scenes/objects/ring.tscn" id="2_u82bu"]
+[ext_resource type="PackedScene" uid="uid://dix4e75osprr1" path="res://scenes/objects/candle.tscn" id="3_g6wxg"]
 
 [node name="World" instance=ExtResource("1_2jvpn")]
 script = ExtResource("2_d2wnq")
 
+[node name="candle" parent="Lights" index="1" instance=ExtResource("3_g6wxg")]
+position = Vector2(1142, 142)
+
 [node name="StartingPosition" parent="." index="1"]
 position = Vector2(203, 202)
 
+[node name="Ground" parent="." index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
 [node name="Player" parent="." index="4"]
 position = Vector2(637, 675)
+
+[node name="Rings" parent="." index="5"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Ring4" parent="Rings" index="0" instance=ExtResource("2_u82bu")]
 position = Vector2(1880, 268)

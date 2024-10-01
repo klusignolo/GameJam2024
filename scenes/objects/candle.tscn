@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dix4e75osprr1"]
+
+[ext_resource type="Texture2D" uid="uid://c5rtym041ic0k" path="res://graphics/lights/light.png" id="1_vg7kh"]
+[ext_resource type="Texture2D" uid="uid://bx7tor3li7wit" path="res://graphics/lights/candle.png" id="2_yoepr"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fofhp"]
+polygon = PackedVector2Array(-2, -4, -3, 12, 3, 12, 2, -4)
+
+[node name="candle" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.937255, 0.490196, 0, 1)
+texture = ExtResource("1_vg7kh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_yoepr")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0.556863)
+occluder = SubResource("OccluderPolygon2D_fofhp")
