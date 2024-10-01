@@ -31,6 +31,6 @@ func regenerate_float():
 	if player_is_on_floor:
 		await get_tree().create_timer(.1).timeout
 		if float_remaining < 100:
-			float_remaining += 5
+			float_remaining += 1
 			regenerate_float()
 			

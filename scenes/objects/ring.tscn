@@ -8,7 +8,7 @@
 height = 110.0
 
 [node name="Ring" type="StaticBody2D" groups=["Ring"]]
-collision_layer = 8
+collision_layer = 2
 script = ExtResource("1_8sclg")
 
 [node name="BottomCollision" type="CollisionPolygon2D" parent="."]

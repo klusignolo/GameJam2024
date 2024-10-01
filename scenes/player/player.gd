@@ -37,10 +37,7 @@ func _physics_process(delta: float) -> void:
 		if Globals.float_remaining > 0:
 			velocity.y = FLOAT_VELOCITY
 			gravity = FLOAT_GRAVITY
-			if can_lose_float:
-				can_lose_float = false
-				Globals.float_remaining -= 5
-				$FloatTimer.start()
+			Globals.float_remaining -= 15 * delta
 		else:
 			gravity = NORMAL_GRAVITY
 	else:
@@ -82,7 +79,3 @@ func _physics_process(delta: float) -> void:
 			UI.hide_phase_message()
 		if is_touching_object:
 			pass
-
-
-func _on_float_timer_timeout() -> void:
-	can_lose_float = true

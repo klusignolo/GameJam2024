@@ -51,7 +51,6 @@ color = Color(0.280997, 0.670268, 0.641702, 1)
 [node name="CanLight3" parent="Lights/CanGroup" instance=ExtResource("3_yi5ld")]
 position = Vector2(-123, 143)
 rotation = 1.55509
-scale = Vector2(1, 1)
 color = Color(0.836635, 0.503836, 0.25159, 1)
 
 [node name="CanLight4" parent="Lights/CanGroup" instance=ExtResource("3_yi5ld")]
@@ -125,7 +124,6 @@ color = Color(0.280997, 0.670268, 0.641702, 1)
 [node name="CanLight3" parent="Lights/CanGroup2" instance=ExtResource("3_yi5ld")]
 position = Vector2(-123, 143)
 rotation = 1.55509
-scale = Vector2(1, 1)
 color = Color(0.836635, 0.503836, 0.25159, 1)
 
 [node name="CanLight4" parent="Lights/CanGroup2" instance=ExtResource("3_yi5ld")]
@@ -199,7 +197,6 @@ color = Color(0.280997, 0.670268, 0.641702, 1)
 [node name="CanLight3" parent="Lights/CanGroup3" instance=ExtResource("3_yi5ld")]
 position = Vector2(-123, 143)
 rotation = 1.55509
-scale = Vector2(1, 1)
 color = Color(0.836635, 0.503836, 0.25159, 1)
 
 [node name="CanLight4" parent="Lights/CanGroup3" instance=ExtResource("3_yi5ld")]
@@ -273,7 +270,6 @@ color = Color(0.280997, 0.670268, 0.641702, 1)
 [node name="CanLight3" parent="Lights/CanGroup4" instance=ExtResource("3_yi5ld")]
 position = Vector2(-123, 143)
 rotation = 1.55509
-scale = Vector2(1, 1)
 color = Color(0.836635, 0.503836, 0.25159, 1)
 
 [node name="CanLight4" parent="Lights/CanGroup4" instance=ExtResource("3_yi5ld")]
