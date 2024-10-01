@@ -64,6 +64,8 @@ func _physics_process(delta: float) -> void:
 			speed = SLOW_SPEED
 		elif collition_layer_id == Globals.WALL_LAYER_ID:
 			UI.show_phase_message()
+		elif collition_layer_id == Globals.OBJECTS_LAYER_ID:
+			pass
 		else:
 			UI.hide_phase_message()
 			speed = BASE_SPEED

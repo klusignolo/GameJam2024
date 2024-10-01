@@ -2,6 +2,7 @@ extends Node
 
 var can_return_to_start := false
 var screen_size: Vector2 = Vector2(1280, 720)
+const OBJECTS_LAYER_ID := 4
 const GROUND_LAYER_ID := 4
 const ROPE_LAYER_ID := 8
 const WALL_LAYER_ID := 16

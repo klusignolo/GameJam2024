@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c004cv7hxox17" path="res://graphics/objects/ring_top.png" id="2_nsska"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rymvw"]
-height = 86.0
+height = 110.0
 
 [node name="Ring" type="StaticBody2D" groups=["Ring"]]
-collision_layer = 2
+collision_layer = 8
 script = ExtResource("1_8sclg")
 
 [node name="BottomCollision" type="CollisionPolygon2D" parent="."]
@@ -18,14 +18,14 @@ polygon = PackedVector2Array(-1, 69, 7, 81, 4, 81, -2, 81, -6, 81)
 polygon = PackedVector2Array(-18, -59, -11, -66, -5, -68, 2, -65, 7, -58, 17, -66, 10, -74, 1, -78, -8, -77, -16, -71, -20, -66)
 
 [node name="RingBottom" type="Sprite2D" parent="."]
-z_index = -4096
+z_index = -1
 z_as_relative = false
 position = Vector2(-0.0999947, 2.7)
 scale = Vector2(0.2, 0.3)
 texture = ExtResource("1_v6fag")
 
 [node name="RingTop" type="Sprite2D" parent="."]
-z_index = 4096
+z_index = 3
 z_as_relative = false
 position = Vector2(-0.0999947, 2.7)
 scale = Vector2(0.2, 0.3)
@@ -33,6 +33,7 @@ texture = ExtResource("2_nsska")
 
 [node name="RingExit" type="Area2D" parent="."]
 position = Vector2(27, 3)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RingExit"]
@@ -41,6 +42,7 @@ shape = SubResource("CapsuleShape2D_rymvw")
 
 [node name="RingEntry" type="Area2D" parent="."]
 position = Vector2(-30, 2)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RingEntry"]
