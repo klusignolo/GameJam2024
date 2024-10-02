@@ -7,12 +7,13 @@ func _ready() -> void:
 	send_player_to_start()
 
 func _process(_delta: float) -> void:
-	$Camera.position.x = $Player.position.x
+	$Camera.position.x = min($EndingPosition.position.x - 500, $Player.position.x)
 	$AudioStreamPlayer2D.position = $Player.position
 	
 	if $Player.position.distance_to($StartingPosition.position) > 50 and player_is_at_start:
 		UI.start_level_timer()
-	if $Player.position.distance_to($EndingPosition.position) < 50:
+		player_is_at_start = false
+	if $Player.position.distance_to($EndingPosition.position) < 50 and Globals.collected_all_rings:
 		UI.stop_level_timer()
 		
 	set_player_near_tile_properties()

@@ -343,7 +343,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="EndingPosition" type="Marker2D" parent="."]
-metadata/_edit_lock_ = true
+position = Vector2(2983, 404)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -374,5 +374,6 @@ tile_set = ExtResource("3_s7u8g")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_o2hmk")
+metadata/_edit_lock_ = true
 
 [connection signal="fell_down" from="Player" to="." method="_on_player_fell_down"]

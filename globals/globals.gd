@@ -19,7 +19,10 @@ var ring_count := 0:
 		ring_count = value
 		UI.update_ring_score()
 var ring_total := 0
-
+var collected_all_rings: bool = false:
+	get:
+		return ring_count == ring_total
+		
 var float_remaining: int = 100:
 	set(value):
 		if float_remaining != value:
