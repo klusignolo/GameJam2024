@@ -10,7 +10,10 @@ const NORMAL_GRAVITY = 2
 var gravity = 2
 var can_lose_float = true
 var can_jump := true
+var is_floating := false
 signal fell_down
+
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 
 var is_on_rope := false:
 	set(value):
@@ -58,23 +61,42 @@ func _physics_process(delta: float) -> void:
 	# Check if jump is pressed and also falling down. If so, float.
 	if Input.is_action_pressed("jump_float") and not is_on_floor() and velocity.y > 0:
 		if Globals.float_remaining > 0:
+			is_floating = true
 			velocity.y = FLOAT_VELOCITY
 			gravity = FLOAT_GRAVITY
 			Globals.float_remaining -= 15 * delta
 		else:
+			is_floating = false
 			gravity = NORMAL_GRAVITY
 	else:
+		is_floating = false
 		gravity = NORMAL_GRAVITY
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		$Sprite2D.flip_h = direction > 0
+		$Sprite2D.flip_h = direction < 0
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
+	set_animation()
 	move_and_slide()
+
+func set_animation():
+	if not is_on_floor():
+		if velocity.y < 0:
+			animation_player.play("jumping")
+		else:
+			animation_player.play("moving")
+	else:
+		if is_on_rope:
+			animation_player.play("balancing")
+		else:
+			if velocity.x != 0:
+				animation_player.play("moving")
+			else:
+				animation_player.play("bobbing_idle")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
