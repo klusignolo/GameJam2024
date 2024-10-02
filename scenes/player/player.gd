@@ -12,9 +12,31 @@ var can_lose_float = true
 var can_jump := true
 signal fell_down
 
+var is_on_rope := false:
+	set(value):
+		if value != is_on_rope:
+			is_on_rope = value
+			if is_on_rope:
+				UI.show_balance_bar()
+				can_jump = false
+				speed = SLOW_SPEED
+			else:
+				can_jump = true
+				speed = BASE_SPEED
+				UI.hide_balance_bar()
+var is_touching_wall := false:
+	set(value):
+		if value != is_touching_wall:
+			is_touching_wall = value
+			if is_touching_wall and not Input.is_action_pressed("phase"):
+				UI.show_phase_message()
+			else:
+				UI.hide_phase_message()
+
 func _physics_process(delta: float) -> void:
 	# Fall through ropes if falling
 	set_collision_mask_value(4, not Globals.player_lost_balance)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta * gravity
@@ -33,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump_float") and is_on_floor() and can_jump:
 		velocity.y = JUMP_VELOCITY
 		
+	# Check if jump is pressed and also falling down. If so, float.
 	if Input.is_action_pressed("jump_float") and not is_on_floor() and velocity.y > 0:
 		if Globals.float_remaining > 0:
 			velocity.y = FLOAT_VELOCITY
@@ -44,7 +67,6 @@ func _physics_process(delta: float) -> void:
 		gravity = NORMAL_GRAVITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		$Sprite2D.flip_h = direction > 0
@@ -53,29 +75,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	move_and_slide()
-	
-	var collision = get_last_slide_collision()
-	if collision:
-		can_jump = true
-		speed = BASE_SPEED
-		var collision_rid = collision.get_collider_rid()
-		var collition_layer_id = PhysicsServer2D.body_get_collision_layer(collision_rid)
-		var is_on_rope = collition_layer_id == Globals.ROPE_LAYER_ID
-		var is_on_ground = collition_layer_id == Globals.GROUND_LAYER_ID
-		var is_touching_wall = collition_layer_id == Globals.WALL_LAYER_ID
-		var is_touching_object = collition_layer_id == Globals.OBJECTS_LAYER_ID
 
-		if is_on_ground:
-			fell_down.emit()
-		if is_on_rope:
-			UI.show_balance_bar()
-			can_jump = false
-			speed = SLOW_SPEED
-		else:
-			UI.hide_balance_bar()
-		if is_touching_wall:
-			UI.show_phase_message()
-		else:
-			UI.hide_phase_message()
-		if is_touching_object:
-			pass
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	fell_down.emit()
