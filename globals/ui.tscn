@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://qiep14nqugaj"]
 
-[ext_resource type="Script" path="res://ui.gd" id="1_i1fot"]
+[ext_resource type="Script" path="res://globals/ui.gd" id="1_615lg"]
 [ext_resource type="Script" path="res://globals/level_timer_container.gd" id="2_wc0up"]
 [ext_resource type="Script" path="res://globals/rope_balance_bar.gd" id="3_1y8rq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7efof"]
 
 [node name="UI" type="CanvasLayer"]
-script = ExtResource("1_i1fot")
+script = ExtResource("1_615lg")
 
 [node name="InstructionLabelContainer" type="MarginContainer" parent="."]
 anchors_preset = 2

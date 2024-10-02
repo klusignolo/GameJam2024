@@ -4,6 +4,7 @@ const BASE_SPEED = 250.0
 const SLOW_SPEED = 100.0
 var speed = BASE_SPEED
 const JUMP_VELOCITY = -650.0
+const BIG_JUMP_VELOCITY = -850.0
 const FLOAT_VELOCITY = 50
 const FLOAT_GRAVITY = .5
 const NORMAL_GRAVITY = 2
@@ -55,11 +56,16 @@ func _physics_process(delta: float) -> void:
 		set_collision_mask_value(4, true)
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump_float") and is_on_floor() and can_jump:
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump") and is_on_floor() and can_jump:
+		if Input.is_action_pressed("down"):
+			velocity.y = BIG_JUMP_VELOCITY
+		else:
+			velocity.y += JUMP_VELOCITY
+			
+			
 		
 	# Check if jump is pressed and also falling down. If so, float.
-	if Input.is_action_pressed("jump_float") and not is_on_floor() and velocity.y > 0:
+	if Input.is_action_pressed("jump") and not is_on_floor() and velocity.y > 0:
 		if Globals.float_remaining > 0:
 			is_floating = true
 			velocity.y = FLOAT_VELOCITY
@@ -86,12 +92,12 @@ func _physics_process(delta: float) -> void:
 func set_animation():
 	if not is_on_floor():
 		if velocity.y < 0:
-			animation_player.play("jumping")
+			animation_player.play("jump")
 		else:
 			animation_player.play("moving")
 	else:
-		if is_on_rope:
-			animation_player.play("balancing")
+		if is_on_rope or Input.is_action_pressed("down"):
+			animation_player.play("squish")
 		else:
 			if velocity.x != 0:
 				animation_player.play("moving")
