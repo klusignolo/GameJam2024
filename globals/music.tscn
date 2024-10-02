@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4f03cc8bjyjo"]
+
+[ext_resource type="AudioStream" uid="uid://57nhvvlniu4n" path="res://audio/ring master.mp3" id="1_w1kwm"]
+
+[node name="Music" type="Node"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_w1kwm")
+autoplay = true

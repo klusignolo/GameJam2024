@@ -377,4 +377,3 @@ stream = ExtResource("6_o2hmk")
 autoplay = true
 
 [connection signal="fell_down" from="Player" to="." method="_on_player_fell_down"]
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -35,7 +35,7 @@ var is_touching_wall := false:
 
 func _physics_process(delta: float) -> void:
 	# Fall through ropes if falling
-	set_collision_mask_value(4, not Globals.player_lost_balance)
+	set_collision_mask_value(3, not Globals.player_lost_balance)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -46,10 +46,10 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("phase"):
 		$Sprite2D.self_modulate.a = 0.5
-		set_collision_mask_value(5, false)
+		set_collision_mask_value(4, false)
 	elif Input.is_action_just_released("phase"):
 		$Sprite2D.self_modulate.a = 1.0
-		set_collision_mask_value(5, true)
+		set_collision_mask_value(4, true)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump_float") and is_on_floor() and can_jump:

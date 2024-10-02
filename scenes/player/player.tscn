@@ -6,7 +6,7 @@
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-collision_mask = 30
+collision_mask = 14
 script = ExtResource("1_nb6po")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

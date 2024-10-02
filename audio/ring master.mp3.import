@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/ring master.mp3-f4f112c4fca880d8832303916232e
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

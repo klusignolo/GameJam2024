@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	$Camera.position.x = $Player.position.x
+	$AudioStreamPlayer2D.position = $Player.position
 	
 	if $Player.position.distance_to($StartingPosition.position) > 50 and player_is_at_start:
 		UI.start_level_timer()
@@ -48,7 +49,3 @@ func send_player_to_start():
 
 func _on_player_fell_down() -> void:
 	send_player_to_start()
-
-
-func _on_audio_stream_player_2d_finished() -> void:
-	$AudioStreamPlayer2D.play()
