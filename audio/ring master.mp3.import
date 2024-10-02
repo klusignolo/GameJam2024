@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://57nhvvlniu4n"
+path="res://.godot/imported/ring master.mp3-f4f112c4fca880d8832303916232e09a.mp3str"
+
+[deps]
+
+source_file="res://audio/ring master.mp3"
+dest_files=["res://.godot/imported/ring master.mp3-f4f112c4fca880d8832303916232e09a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
