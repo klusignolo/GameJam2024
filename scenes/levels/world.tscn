@@ -393,6 +393,7 @@ tile_set = ExtResource("3_s7u8g")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_o2hmk")
+autoplay = true
 metadata/_edit_lock_ = true
 
 [connection signal="fell_down" from="Player" to="." method="_on_player_fell_down"]

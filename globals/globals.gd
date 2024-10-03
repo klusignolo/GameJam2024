@@ -30,9 +30,7 @@ var float_remaining: float = 100.0:
 			UI.update_float_remaining(float_remaining)
 
 func regenerate_float():
-	if player_is_on_floor:
-		await get_tree().create_timer(.1).timeout
-		if float_remaining < 100:
-			float_remaining += 1
-			regenerate_float()
+	while player_is_on_floor and float_remaining < 100:
+		float_remaining += 1
+		await get_tree().create_timer(.05).timeout
 			

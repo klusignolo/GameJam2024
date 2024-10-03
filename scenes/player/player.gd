@@ -41,12 +41,14 @@ func _physics_process(delta: float) -> void:
 	# Fall through ropes if falling
 	set_collision_mask_value(3, not Globals.player_lost_balance)
 	
-	# Add the gravity.
+	set_gravity(delta)
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta * gravity_modifier
 		Globals.player_is_on_floor = false
 	else:
 		Globals.player_is_on_floor = true
+		
 		
 	if Input.is_action_just_pressed("phase"):
 		$Sprite2D.self_modulate.a = 0.5
@@ -77,7 +79,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
-	set_gravity(delta)
 	set_animation()
 	move_and_slide()
 
@@ -86,7 +87,7 @@ func set_gravity(delta: float):
 		is_floating = true
 		velocity.y = FLOAT_VELOCITY
 		gravity_modifier = FLOAT_GRAVITY
-		Globals.float_remaining -= 15.0 * delta
+		Globals.float_remaining -= 55.0 * delta
 	else:
 		is_floating = false
 		gravity_modifier = NORMAL_GRAVITY

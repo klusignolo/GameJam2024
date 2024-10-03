@@ -1,9 +1,9 @@
 extends Panel
 
 var time := 0.0
-var minutes := 0
-var seconds := 0
-var msec := 0
+var minutes := 0.0
+var seconds := 0.0
+var msec := 0.0
 var is_running = false
 
 func _process(delta: float) -> void:
@@ -12,9 +12,9 @@ func _process(delta: float) -> void:
 		update_labels_with_current_time()
 
 func update_labels_with_current_time():
-	msec = int(fmod(time, 1)) * 100
-	seconds = int(fmod(time, 60))
-	minutes = int(fmod(time, 3600) / 60)
+	msec = fmod(time, 1.0) * 100.0
+	seconds = fmod(time, 60.0)
+	minutes = fmod(time, 3600.0) / 60.0
 	$MinutesLabel.text = "%02d:" % minutes
 	$SecondsLabel.text = "%02d." % seconds
 	$MillisecondsLabel.text = "%03d" % msec

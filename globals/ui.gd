@@ -37,5 +37,5 @@ func reset_level_timer():
 func stop_level_timer():
 	$LevelTimerContainer.stop()
 
-func update_float_remaining(float_remaining: int):
+func update_float_remaining(float_remaining: float):
 	$FloatBarContainer/ProgressBar.value = float_remaining
