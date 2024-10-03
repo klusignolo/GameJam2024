@@ -12,10 +12,10 @@ collision_layer = 2
 script = ExtResource("1_8sclg")
 
 [node name="BottomCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-1, 69, 7, 81, 4, 81, -2, 81, -6, 81)
+polygon = PackedVector2Array(-1, 69, 1, 77, 2, 82, -3, 82, -6, 81, -6, 75)
 
 [node name="TopCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-18, -59, -11, -66, -5, -68, 2, -65, 7, -58, 17, -66, 10, -74, 1, -78, -8, -77, -16, -71, -20, -66)
+polygon = PackedVector2Array(-9, -66, 0, -67, 7, -76, 1, -78, -10, -76)
 
 [node name="RingBottom" type="Sprite2D" parent="."]
 z_index = -1

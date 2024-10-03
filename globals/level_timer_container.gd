@@ -12,9 +12,9 @@ func _process(delta: float) -> void:
 		update_labels_with_current_time()
 
 func update_labels_with_current_time():
-	msec = fmod(time, 1) * 100
-	seconds = fmod(time, 60)
-	minutes = fmod(time, 3600) / 60
+	msec = int(fmod(time, 1)) * 100
+	seconds = int(fmod(time, 60))
+	minutes = int(fmod(time, 3600) / 60)
 	$MinutesLabel.text = "%02d:" % minutes
 	$SecondsLabel.text = "%02d." % seconds
 	$MillisecondsLabel.text = "%03d" % msec

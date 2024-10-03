@@ -23,12 +23,11 @@ var collected_all_rings: bool = false:
 	get:
 		return ring_count == ring_total
 		
-var float_remaining: int = 100:
+var float_remaining: float = 100.0:
 	set(value):
 		if float_remaining != value:
 			float_remaining = value
 			UI.update_float_remaining(float_remaining)
-			regenerate_float
 
 func regenerate_float():
 	if player_is_on_floor:

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyu86im6aseth" path="res://graphics/easter_eggs/nick.jpg" id="4_u34mm"]
 
 [node name="World" instance=ExtResource("1_2jvpn")]
+script = null
 
 [node name="Nick" type="Sprite2D" parent="RegularBackground" index="7"]
 z_index = 3

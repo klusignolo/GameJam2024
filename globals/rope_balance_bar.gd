@@ -26,7 +26,10 @@ func _process(delta: float) -> void:
 		var min_v = 50 * delta
 		var max_v = 200 * delta
 		var move_velocity = max_v if v > max_v else min_v if v < min_v else v
-		var is_moving_left = drift_amount <= 0
+		var is_moving_left = drift_amount < 0
+		if drift_amount == 0:
+			# When balance is in middle, randomly pick if moving left or right
+			is_moving_left = [true, false].pick_random()			
 		var is_pressing_up = Input.is_action_pressed("up")
 		var is_pressing_down = Input.is_action_pressed("down")
 		if is_pressing_down or is_pressing_up:

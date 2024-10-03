@@ -1,19 +1,27 @@
-class_name WorldParent
 extends Node2D
 
 @onready var tilemap = $LevelTileMap
+var main_menu: PackedScene = preload("res://scenes/main_menu.tscn")
 var player_is_at_start := true
+
 func _ready() -> void:
+	UI.show_all_hud()
 	send_player_to_start()
+	var rings = get_tree().get_nodes_in_group("Ring")
+	Globals.ring_total = len(rings)
+	UI.update_ring_score()
 
 func _process(_delta: float) -> void:
-	$Camera.position.x = min($EndingPosition.position.x - 500, $Player.position.x)
-	$AudioStreamPlayer2D.position = $Player.position
+	if Input.is_action_just_pressed("escape"):
+		get_tree().change_scene_to_packed(main_menu)
+		
+	$Camera.position.x = min($Markers/EndingPosition.position.x - 500, $Player.position.x)
+	$Music.position = $Player.position
 	
-	if $Player.position.distance_to($StartingPosition.position) > 50 and player_is_at_start:
+	if $Player.position.distance_to($Markers/StartingPosition.position) > 50 and player_is_at_start:
 		UI.start_level_timer()
 		player_is_at_start = false
-	if $Player.position.distance_to($EndingPosition.position) < 50 and Globals.collected_all_rings:
+	if $Player.position.distance_to($Markers/EndingPosition.position) < 50 and Globals.collected_all_rings:
 		UI.stop_level_timer()
 		
 	set_player_near_tile_properties()
@@ -38,7 +46,7 @@ func set_player_near_tile_properties():
 		$Player.is_touching_wall = false
 
 func send_player_to_start():
-	$Player.position = $StartingPosition.position
+	$Player.position = $Markers/StartingPosition.position
 	for ring in get_tree().get_nodes_in_group("Ring"):
 		ring.reset()
 	Globals.ring_count = 0

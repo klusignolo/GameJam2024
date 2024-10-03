@@ -4,8 +4,15 @@ extends CanvasLayer
 @onready var score_label = $RingScoreContainer/ScoreLabel
 
 func _ready():
+	hide_all_hud()
 	hide_phase_message()
 
+func hide_all_hud():
+	visible = false
+
+func show_all_hud():
+	visible = true
+	
 func show_balance_bar():
 	$RopeBalanceBar.begin_balance()
 	

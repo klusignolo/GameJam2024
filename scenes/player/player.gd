@@ -8,7 +8,7 @@ const BIG_JUMP_VELOCITY = -850.0
 const FLOAT_VELOCITY = 50
 const FLOAT_GRAVITY = .5
 const NORMAL_GRAVITY = 2
-var gravity = 2
+var gravity_modifier = 2
 var can_lose_float = true
 var can_jump := true
 var is_floating := false
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * gravity
+		velocity += get_gravity() * delta * gravity_modifier
 		Globals.player_is_on_floor = false
 	else:
 		Globals.player_is_on_floor = true
@@ -65,18 +65,9 @@ func _physics_process(delta: float) -> void:
 			
 		
 	# Check if jump is pressed and also falling down. If so, float.
-	if Input.is_action_pressed("jump") and not is_on_floor() and velocity.y > 0:
-		if Globals.float_remaining > 0:
-			is_floating = true
-			velocity.y = FLOAT_VELOCITY
-			gravity = FLOAT_GRAVITY
-			Globals.float_remaining -= 15 * delta
-		else:
-			is_floating = false
-			gravity = NORMAL_GRAVITY
-	else:
-		is_floating = false
-		gravity = NORMAL_GRAVITY
+	var is_falling = not is_on_floor() and velocity.y > 0
+	is_floating = Input.is_action_pressed("jump") and is_falling and Globals.float_remaining > 0
+
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
@@ -86,8 +77,19 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
+	set_gravity(delta)
 	set_animation()
 	move_and_slide()
+
+func set_gravity(delta: float):	
+	if is_floating:
+		is_floating = true
+		velocity.y = FLOAT_VELOCITY
+		gravity_modifier = FLOAT_GRAVITY
+		Globals.float_remaining -= 15.0 * delta
+	else:
+		is_floating = false
+		gravity_modifier = NORMAL_GRAVITY
 
 func set_animation():
 	if not is_on_floor():
