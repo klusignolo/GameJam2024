@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cesvwbsp15wqc"]
+[gd_scene load_steps=20 format=3 uid="uid://cesvwbsp15wqc"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_nb6po"]
 [ext_resource type="Texture2D" uid="uid://br2qle6a07vdx" path="res://graphics/player/Ghost-still.png" id="2_0vvf2"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://c5rtym041ic0k" path="res://graphics/lights/light.png" id="3_dg1ya"]
 [ext_resource type="Texture2D" uid="uid://hvc8gdh6qh2r" path="res://graphics/player/Ghost-jump.png" id="4_o8uyj"]
 [ext_resource type="Texture2D" uid="uid://c7w105c2p8xn" path="res://graphics/player/Ghost-squish.png" id="5_xmse4"]
+[ext_resource type="AudioStream" uid="uid://be15lb85ov0f8" path="res://audio/jump.mp3" id="7_nj6xq"]
+[ext_resource type="AudioStream" uid="uid://bvvf3bd2uhxfu" path="res://audio/hover 2.mp3" id="8_tjq7w"]
+[ext_resource type="AudioStream" uid="uid://di2s2hhiuhsoy" path="res://audio/phase_in.mp3" id="9_r2eep"]
+[ext_resource type="AudioStream" uid="uid://dmwosknfd8ayu" path="res://audio/phase-out.mp3" id="10_fo2hl"]
+[ext_resource type="AudioStream" uid="uid://c66sriia8i3m3" path="res://audio/float-fail.mp3" id="11_bmu7q"]
 
 [sub_resource type="Animation" id="Animation_wpaxv"]
 length = 0.001
@@ -149,5 +154,23 @@ texture = ExtResource("3_dg1ya")
 texture_scale = 0.2
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_nj6xq")
+volume_db = 2.971
+pitch_scale = 1.27
+
+[node name="sfx_hover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_tjq7w")
+attenuation = 0.307786
+
+[node name="sfx_phase_in" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_r2eep")
+
+[node name="sfx_phase_out" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_fo2hl")
+
+[node name="sfx_hover_fail" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_bmu7q")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

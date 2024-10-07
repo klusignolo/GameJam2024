@@ -15,6 +15,11 @@ var is_floating := false
 signal fell_down
 
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
+@onready var sfx_hover: AudioStreamPlayer2D = $sfx_hover
+@onready var sfx_phase_out: AudioStreamPlayer2D = $sfx_phase_out
+@onready var sfx_phase_in: AudioStreamPlayer2D = $sfx_phase_in
+@onready var sfx_hover_fail: AudioStreamPlayer2D = $sfx_hover_fail
 
 var is_on_rope := false:
 	set(value):
@@ -53,12 +58,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("phase"):
 		$Sprite2D.self_modulate.a = 0.5
 		set_collision_mask_value(4, false)
+		sfx_phase_in.play()
 	elif Input.is_action_just_released("phase"):
 		$Sprite2D.self_modulate.a = 1.0
 		set_collision_mask_value(4, true)
+		sfx_phase_out.play()
+		
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and can_jump:
+		sfx_jump.play()
 		if Input.is_action_pressed("down"):
 			velocity.y = BIG_JUMP_VELOCITY
 		else:
@@ -69,6 +78,15 @@ func _physics_process(delta: float) -> void:
 	# Check if jump is pressed and also falling down. If so, float.
 	var is_falling = not is_on_floor() and velocity.y > 0
 	is_floating = Input.is_action_pressed("jump") and is_falling and Globals.float_remaining > 0
+	
+	if Input.is_action_pressed("jump") and is_falling and Globals.float_remaining <=0:
+		sfx_hover_fail.play()
+		
+	if is_floating and not sfx_hover.playing:
+		sfx_hover.play()
+		
+	if sfx_hover.playing and not is_floating:
+		sfx_hover.stop()
 
 
 	# Get the input direction and handle the movement/deceleration.
