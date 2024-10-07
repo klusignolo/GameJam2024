@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu4fylwev7iv0"
-path="res://.godot/imported/dog.png-627524677ccdaa3bca3fe87eeeea2dfc.ctex"
+uid="uid://dm4gi4wyrb06"
+path="res://.godot/imported/Cannon.png-4fefec7f020e77ad69c1da7d7d0d52a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/player/dog.png"
-dest_files=["res://.godot/imported/dog.png-627524677ccdaa3bca3fe87eeeea2dfc.ctex"]
+source_file="res://graphics/objects/Cannon.png"
+dest_files=["res://.godot/imported/Cannon.png-4fefec7f020e77ad69c1da7d7d0d52a7.ctex"]
 
 [params]
 

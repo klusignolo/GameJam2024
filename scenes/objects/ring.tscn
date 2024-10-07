@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl1owjckbnl1y"]
 
 [ext_resource type="Script" path="res://scenes/objects/ring.gd" id="1_8sclg"]
-[ext_resource type="Texture2D" uid="uid://bd500m7n0lset" path="res://graphics/objects/ring_bottom.png" id="1_v6fag"]
-[ext_resource type="Texture2D" uid="uid://c004cv7hxox17" path="res://graphics/objects/ring_top.png" id="2_nsska"]
+[ext_resource type="Texture2D" uid="uid://bdsi1x20a8d73" path="res://graphics/objects/ring_left.png" id="2_d7ekm"]
+[ext_resource type="Texture2D" uid="uid://gfjo2ut165fw" path="res://graphics/objects/ring_right.png" id="3_y0hx3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rymvw"]
 height = 110.0
@@ -11,28 +11,8 @@ height = 110.0
 collision_layer = 2
 script = ExtResource("1_8sclg")
 
-[node name="BottomCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-1, 69, 1, 77, 2, 82, -3, 82, -6, 81, -6, 75)
-
-[node name="TopCollision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-9, -66, 0, -67, 7, -76, 1, -78, -10, -76)
-
-[node name="RingBottom" type="Sprite2D" parent="."]
-z_index = -1
-z_as_relative = false
-position = Vector2(-0.0999947, 2.7)
-scale = Vector2(0.2, 0.3)
-texture = ExtResource("1_v6fag")
-
-[node name="RingTop" type="Sprite2D" parent="."]
-z_index = 3
-z_as_relative = false
-position = Vector2(-0.0999947, 2.7)
-scale = Vector2(0.2, 0.3)
-texture = ExtResource("2_nsska")
-
 [node name="RingExit" type="Area2D" parent="."]
-position = Vector2(27, 3)
+position = Vector2(13, 8)
 collision_layer = 2
 metadata/_edit_group_ = true
 
@@ -41,13 +21,34 @@ position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_rymvw")
 
 [node name="RingEntry" type="Area2D" parent="."]
-position = Vector2(-30, 2)
+position = Vector2(-15, 9)
 collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RingEntry"]
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_rymvw")
+
+[node name="BottomCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-2, 69, 2, 68, 2, 74, -2, 74, -6, 74, -7, 71, -6, 68)
+
+[node name="TopCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(6, 4)
+polygon = PackedVector2Array(-11, -66, -6, -67, 0, -66, 2, -71, -6, -73, -13, -72)
+
+[node name="RingBottom" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(0, 3)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_d7ekm")
+
+[node name="RingTop" type="Sprite2D" parent="."]
+z_index = 3
+z_as_relative = false
+position = Vector2(-0.0999947, 2.7)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_y0hx3")
 
 [connection signal="body_entered" from="RingExit" to="." method="_on_ring_exit_body_entered"]
 [connection signal="body_entered" from="RingEntry" to="." method="_on_ring_entry_body_entered"]

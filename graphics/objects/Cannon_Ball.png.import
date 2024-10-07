@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c004cv7hxox17"
-path="res://.godot/imported/ring_top.png-98e6d7401d3c7e979c8a32ad8dbb761b.ctex"
+uid="uid://d3f0fhebn0n02"
+path="res://.godot/imported/Cannon_Ball.png-e3e302b7371d39d5de5c8c190b60ed0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/objects/ring_top.png"
-dest_files=["res://.godot/imported/ring_top.png-98e6d7401d3c7e979c8a32ad8dbb761b.ctex"]
+source_file="res://graphics/objects/Cannon_Ball.png"
+dest_files=["res://.godot/imported/Cannon_Ball.png-e3e302b7371d39d5de5c8c190b60ed0a.ctex"]
 
 [params]
 

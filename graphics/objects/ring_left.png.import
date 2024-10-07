@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qvyx7obfae5w"
-path="res://.godot/imported/rope.png-914215337eede35c64446cb0397078af.ctex"
+uid="uid://bdsi1x20a8d73"
+path="res://.godot/imported/ring_left.png-a3b1b2590bb07cea49adf193063268ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/objects/rope.png"
-dest_files=["res://.godot/imported/rope.png-914215337eede35c64446cb0397078af.ctex"]
+source_file="res://graphics/objects/ring_left.png"
+dest_files=["res://.godot/imported/ring_left.png-a3b1b2590bb07cea49adf193063268ed.ctex"]
 
 [params]
 
