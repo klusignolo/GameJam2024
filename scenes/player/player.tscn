@@ -157,11 +157,12 @@ texture_scale = 0.2
 
 [node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_nj6xq")
-volume_db = 2.971
+volume_db = 4.952
 pitch_scale = 1.27
 
 [node name="sfx_hover" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_tjq7w")
+volume_db = 2.971
 attenuation = 0.307786
 
 [node name="sfx_phase_in" type="AudioStreamPlayer2D" parent="."]
