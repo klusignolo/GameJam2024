@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://i8bfalg8u206"]
+
+[ext_resource type="Texture2D" uid="uid://bshausllsrimh" path="res://graphics/objects/cannon/wick.png" id="1_8ewdr"]
+[ext_resource type="Texture2D" uid="uid://p8vk6h1jlkmp" path="res://graphics/objects/cannon/cannon.png" id="2_d7p0m"]
+[ext_resource type="Texture2D" uid="uid://c64a2n31bgr76" path="res://graphics/objects/cannon/wheel.png" id="3_771je"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hphl5"]
+radius = 24.4108
+height = 114.843
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r37qd"]
+radius = 23.3452
+
+[node name="Cannon" type="Node2D"]
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(-19, -3)
+rotation = -0.596903
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_hphl5")
+
+[node name="Wick" type="Sprite2D" parent="Body"]
+position = Vector2(42, 9)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_8ewdr")
+
+[node name="Cannon" type="Sprite2D" parent="Body"]
+position = Vector2(-19, -9)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_d7p0m")
+
+[node name="Wheel" type="StaticBody2D" parent="."]
+position = Vector2(-7, 45)
+collision_layer = 2
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel"]
+shape = SubResource("CircleShape2D_r37qd")
+
+[node name="Wheel" type="Sprite2D" parent="Wheel"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_771je")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-7, 45)
+node_a = NodePath("../Body")
+node_b = NodePath("../Wheel")
