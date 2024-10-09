@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj8hvnmodi025"]
+[gd_scene load_steps=8 format=4 uid="uid://cj8hvnmodi025"]
 
 [ext_resource type="Texture2D" uid="uid://un57sraun2q6" path="res://graphics/backgrounds/background_one.png" id="1_3bxe4"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ceofj"]
 [ext_resource type="FontFile" uid="uid://cn57lqusb8hs1" path="res://fonts/new_terror.otf" id="2_yqlpk"]
 [ext_resource type="FontFile" uid="uid://btdu3w4tphf34" path="res://fonts/ghost_stories.ttf" id="3_gul0r"]
+[ext_resource type="PackedScene" uid="uid://i8bfalg8u206" path="res://scenes/objects/cannon.tscn" id="5_n0hbx"]
+[ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://scenes/player/player.tscn" id="6_kmrpu"]
+[ext_resource type="TileSet" uid="uid://bgksmexnig22v" path="res://tilesets/platform_tiles.tres" id="7_s4nht"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -50,25 +53,29 @@ layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_gul0r")
-theme_override_font_sizes/font_size = 18
-text = "Start Game"
-
 [node name="LevelButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_gul0r")
 theme_override_font_sizes/font_size = 18
-text = "Level: 1	"
+text = "Choose Level: 1	"
 
-[node name="StartButton3" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="ControlsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_gul0r")
 theme_override_font_sizes/font_size = 18
-text = "Other Button"
+text = "Controls"
 
-[connection signal="button_up" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_button_up"]
+[node name="Cannon" parent="." instance=ExtResource("5_n0hbx")]
+position = Vector2(912, 649)
+
+[node name="Player" parent="." instance=ExtResource("6_kmrpu")]
+position = Vector2(745, 692)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//y0AAgABAAAAAFAAAC0AAgABAAAAAAABAC0AAgABAAAAAAACAC0AAgABAAAAAAADAC0AAgABAAAAAAAEAC0AAgABAAAAAAAFAC0AAgABAAAAAAAGAC0AAgABAAAAAAAHAC0AAgABAAAAAAAIAC0AAgABAAAAAAAJAC0AAgABAAAAAAAKAC0AAgABAAAAAAALAC0AAgABAAAAAAAMAC0AAgABAAAAAAANAC0AAgABAAAAAAAOAC0AAgABAAAAAAAPAC0AAgABAAAAAAAQAC0AAgABAAAAAAARAC0AAgABAAAAAAASAC0AAgABAAAAAAATAC0AAgABAAAAAAAUAC0AAgABAAAAAAAVAC0AAgABAAAAAAAWAC0AAgABAAAAAAAXAC0AAgABAAAAAAAYAC0AAgABAAAAAAAZAC0AAgABAAAAAAAaAC0AAgABAAAAAAAbAC0AAgABAAAAAAAcAC0AAgABAAAAAAAdAC0AAgABAAAAAAAeAC0AAgABAAAAAAAfAC0AAgABAAAAAAAgAC0AAgABAAAAAAAhAC0AAgABAAAAAAAiAC0AAgABAAAAAAAjAC0AAgABAAAAAAAkAC0AAgABAAAAAAAlAC0AAgABAAAAAAAmAC0AAgABAAAAAAAnAC0AAgABAAAAAAAoAC0AAgABAAAAAAApAC0AAgABAAAAAAAqAC0AAgABAAAAAAArAC0AAgABAAAAAAAsAC0AAgABAAAAAAAtAC0AAgABAAAAAAAuAC0AAgABAAAAAAAvAC0AAgABAAAAAAAwAC0AAgABAAAAAAAxAC0AAgABAAAAAAAyAC0AAgABAAAAAAAzAC0AAgABAAAAAAA0AC0AAgABAAAAAAA1AC0AAgABAAAAAAA2AC0AAgABAAAAAAA3AC0AAgABAAAAAAA4AC0AAgABAAAAAAA5AC0AAgABAAAAAAA6AC0AAgABAAAAAAA7AC0AAgABAAAAAAA8AC0AAgABAAAAAAA9AC0AAgABAAAAAAA+AC0AAgABAAAAAAA/AC0AAgABAAAAAABAAC0AAgABAAAAAABBAC0AAgABAAAAAABCAC0AAgABAAAAAABDAC0AAgABAAAAAABEAC0AAgABAAAAAABFAC0AAgABAAAAAABGAC0AAgABAAAAAABHAC0AAgABAAAAAABIAC0AAgABAAAAAABJAC0AAgABAAAAAABKAC0AAgABAAAAAABLAC0AAgABAAAAAABMAC0AAgABAAAAAABNAC0AAgABAAAAAABOAC0AAgABAAAAAABPAC0AAgABAAAAAABQAC0AAgABAAAAAABQACMAAgABAAAAAFBQACQAAgABAAAAAFBQACUAAgABAAAAAFBQACYAAgABAAAAAFBQACcAAgABAAAAAFBQACgAAgABAAAAAFBQACwAAgABAAAAAFBQACsAAgABAAAAAFBQACoAAgABAAAAAFBQACkAAgABAAAAAFBQACIAAgABAAAAAFBQACEAAgABAAAAAFBQACAAAgABAAAAAFBQAB8AAgABAAAAAFBQAB4AAgABAAAAAFBQAB0AAgABAAAAAFBQABwAAgABAAAAAFBQABsAAgABAAAAAFBQABoAAgABAAAAAFD//ywAAgABAAAAAFD//ysAAgABAAAAAFD//yoAAgABAAAAAFD//ykAAgABAAAAAFD//ygAAgABAAAAAFD//ycAAgABAAAAAFD//yYAAgABAAAAAFD//yUAAgABAAAAAFD//yQAAgABAAAAAFD//yMAAgABAAAAAFD//yIAAgABAAAAAFD//yEAAgABAAAAAFD//yAAAgABAAAAAFD//x8AAgABAAAAAFD//x4AAgABAAAAAFD//x0AAgABAAAAAFD//xwAAgABAAAAAFD//xsAAgABAAAAAFD//xoAAgABAAAAAFD//xkAAgABAAAAAFD//xgAAgABAAAAAFD//xcAAgABAAAAAFD//xYAAgABAAAAAFD//xUAAgABAAAAAFD//xQAAgABAAAAAFD//xMAAgABAAAAAFD//xIAAgABAAAAAFD//xEAAgABAAAAAFD//xAAAgABAAAAAFD//w8AAgABAAAAAFD//w4AAgABAAAAAFD//w0AAgABAAAAAFD//wwAAgABAAAAAFD//wsAAgABAAAAAFBQABkAAgABAAAAAFBQABgAAgABAAAAAFBQABcAAgABAAAAAFBQABYAAgABAAAAAFBQABUAAgABAAAAAFBQABQAAgABAAAAAFBQABMAAgABAAAAAFBQABIAAgABAAAAAFBQABEAAgABAAAAAFBQABAAAgABAAAAAFBQAA8AAgABAAAAAFBQAA4AAgABAAAAAFBQAA0AAgABAAAAAFBQAAwAAgABAAAAAFBQAAsAAgABAAAAAFBQAAoAAgABAAAAAFBQAAkAAgABAAAAAFBQAAgAAgABAAAAAFBQAAcAAgABAAAAAFBQAAYAAgABAAAAAFBQAAUAAgABAAAAAFBQAAQAAgABAAAAAFBQAAMAAgABAAAAAFBQAAIAAgABAAAAAFBQAAEAAgABAAAAAFBQAAAAAgABAAAAAFD//woAAgABAAAAAFD//wkAAgABAAAAAFD//wgAAgABAAAAAFD//wcAAgABAAAAAFD//wYAAgABAAAAAFD//wUAAgABAAAAAFD//wQAAgABAAAAAFD//wMAAgABAAAAAFD//wIAAgABAAAAAFD//wEAAgABAAAAAFD//wAAAgABAAAAAFA=")
+tile_set = ExtResource("7_s4nht")
+
+[connection signal="button_up" from="VBoxContainer/VBoxContainer/LevelButton" to="." method="_on_level_button_button_up"]
+[connection signal="player_fired_away" from="Cannon" to="." method="_on_cannon_player_fired_away"]

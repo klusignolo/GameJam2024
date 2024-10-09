@@ -2,17 +2,19 @@ extends Node2D
 
 @onready var tilemap = $LevelTileMap
 var main_menu: PackedScene = preload("res://scenes/main_menu.tscn")
-var player_is_at_start := true
+var player_is_at_start := false
 
 func _ready() -> void:
 	UI.show_all_hud()
-	send_player_to_start()
+	$Player.visible = false
+	fly_player_in_from_left()
 	var rings = get_tree().get_nodes_in_group("Ring")
 	Globals.ring_total = len(rings)
 	UI.update_ring_score()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
+		UI.hide_all_hud()
 		get_tree().change_scene_to_packed(main_menu)
 		
 	$Camera.position.x = min($Markers/EndingPosition.position.x - 500, $Player.position.x)
@@ -58,3 +60,13 @@ func send_player_to_start():
 
 func _on_player_fell_down() -> void:
 	send_player_to_start()
+
+func fly_player_in_from_left():
+	var tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property($FlyInPath/PathFollow2D, "progress_ratio", 1, .6)
+	tween.tween_property($FlyInPath/PathFollow2D/Sprite2D, "rotation_degrees", -35, .5)
+	tween.play()
+	await tween.finished
+	$FlyInPath/PathFollow2D/Sprite2D.visible = false
+	$Player.visible = true
+	player_is_at_start = true
