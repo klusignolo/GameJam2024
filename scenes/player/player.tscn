@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cesvwbsp15wqc"]
+[gd_scene load_steps=21 format=3 uid="uid://cesvwbsp15wqc"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_nb6po"]
 [ext_resource type="Texture2D" uid="uid://br2qle6a07vdx" path="res://graphics/player/Ghost-still.png" id="2_0vvf2"]
@@ -37,6 +37,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_0vvf2")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_0c7ax"]
@@ -118,9 +130,39 @@ tracks/0/keys = {
 "values": [ExtResource("5_xmse4")]
 }
 
+[sub_resource type="Animation" id="Animation_tneqc"]
+resource_name = "balance"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_xmse4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.966667, 1.36667, 1.76667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0349066, -0.0349066, 0.0523599, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_omx6l"]
 _data = {
 "RESET": SubResource("Animation_wpaxv"),
+"balance": SubResource("Animation_tneqc"),
 "bobbing_idle": SubResource("Animation_0c7ax"),
 "floating": SubResource("Animation_mj5le"),
 "jump": SubResource("Animation_4ig5t"),

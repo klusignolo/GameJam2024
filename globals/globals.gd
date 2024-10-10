@@ -6,6 +6,23 @@ const OBJECTS_LAYER_ID := 4
 const GROUND_LAYER_ID := 4
 const ROPE_LAYER_ID := 8
 const WALL_LAYER_ID := 16
+
+var selected_level := 1:
+	set(value):
+		print("Updating to " + str(value))
+		selected_level = value
+		UI.update_level_label()
+		
+var level_scenes = {
+	1: "res://scenes/levels/level_one.tscn",
+	2: "res://scenes/levels/level_two.tscn",
+	3: "res://scenes/levels/level_three.tscn"
+}
+var high_scores = {
+	1: null,
+	2: null,
+	3: null
+}
 var player_lost_balance = false
 var player_is_on_floor := true:
 	set(value):

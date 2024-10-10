@@ -99,4 +99,5 @@ rotation = 1.61094
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_e4c7u")
 
+[connection signal="player_fired_away" from="Cannon" to="." method="_on_cannon_player_fired_away"]
 [connection signal="fell_down" from="Player" to="." method="_on_player_fell_down"]

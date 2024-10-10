@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var tilemap = $LevelTileMap
-var main_menu: PackedScene = preload("res://scenes/main_menu.tscn")
 var player_is_at_start := false
 
 func _ready() -> void:
@@ -15,7 +14,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
 		UI.hide_all_hud()
-		get_tree().change_scene_to_packed(main_menu)
+		TransitionLayer.change_scene("res://scenes/main_menu.tscn")
 		
 	$Camera.position.x = min($Markers/EndingPosition.position.x - 200, $Player.position.x)
 	
@@ -70,3 +69,17 @@ func fly_player_in_from_left():
 	$FlyInPath/PathFollow2D/Sprite2D.visible = false
 	$Player.visible = true
 	player_is_at_start = true
+
+
+func _on_cannon_player_fired_away() -> void:
+	transition_to_next_level()
+	
+func transition_to_next_level():
+	var level_count = len(Globals.level_scenes)
+	var destination_scene = "res://scenes/main_menu.tscn"
+	if Globals.selected_level == level_count:
+		Globals.selected_level = 1
+	else:
+		Globals.selected_level += 1
+		destination_scene = Globals.level_scenes[Globals.selected_level]
+	TransitionLayer.change_scene(destination_scene)

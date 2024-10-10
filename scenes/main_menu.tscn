@@ -56,16 +56,10 @@ alignment = 1
 [node name="LevelButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
 theme_override_fonts/font = ExtResource("3_gul0r")
 theme_override_font_sizes/font_size = 18
-text = "Choose Level: 1	"
-
-[node name="ControlsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_gul0r")
-theme_override_font_sizes/font_size = 18
-text = "Controls"
+text = "Choose Level: 1"
 
 [node name="Cannon" parent="." instance=ExtResource("5_n0hbx")]
 position = Vector2(912, 649)

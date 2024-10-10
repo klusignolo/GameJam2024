@@ -3,8 +3,7 @@
 [ext_resource type="Script" path="res://globals/ui.gd" id="1_615lg"]
 [ext_resource type="Script" path="res://globals/level_timer_container.gd" id="2_wc0up"]
 [ext_resource type="Script" path="res://globals/rope_balance_bar.gd" id="3_1y8rq"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7efof"]
+[ext_resource type="LabelSettings" uid="uid://c3qblx4byjcyy" path="res://themes/label_basic.tres" id="3_y7iq2"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_615lg")
@@ -23,48 +22,101 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Press F to phase through walls"
+label_settings = ExtResource("3_y7iq2")
 
-[node name="RingScoreContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 40
+[node name="RingScoreContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_bottom = 63.0
+grow_horizontal = 0
+size_flags_horizontal = 8
 
 [node name="ScoreLabel" type="Label" parent="RingScoreContainer"]
 layout_mode = 2
-text = "Rings: 0/0"
-label_settings = SubResource("LabelSettings_7efof")
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 88.0
+offset_bottom = 30.0
+text = "0/0"
+label_settings = ExtResource("3_y7iq2")
 horizontal_alignment = 1
 
-[node name="LevelTimerContainer" type="Panel" parent="."]
-offset_right = 109.0
-offset_bottom = 40.0
+[node name="ScoreLabel2" type="Label" parent="RingScoreContainer"]
+layout_mode = 2
+offset_left = -139.0
+offset_top = 7.0
+offset_right = 23.0
+offset_bottom = 30.0
+text = "Rings Collected	:"
+label_settings = ExtResource("3_y7iq2")
+horizontal_alignment = 1
+
+[node name="LevelNameControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 90.0
+offset_bottom = 63.0
+size_flags_horizontal = 8
+
+[node name="LevelLabel" type="Label" parent="LevelNameControl"]
+layout_mode = 2
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 88.0
+offset_bottom = 30.0
+text = "Level: 1"
+label_settings = ExtResource("3_y7iq2")
+horizontal_alignment = 1
+
+[node name="LevelTimerContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
 script = ExtResource("2_wc0up")
 
+[node name="TimerLabel" type="Label" parent="LevelTimerContainer"]
+layout_mode = 0
+offset_left = -96.0
+offset_top = 7.0
+offset_right = 10.0
+offset_bottom = 28.0
+text = "Time:"
+label_settings = ExtResource("3_y7iq2")
+horizontal_alignment = 2
+
 [node name="MinutesLabel" type="Label" parent="LevelTimerContainer"]
-layout_mode = 2
-offset_top = 8.0
-offset_right = 40.0
-offset_bottom = 31.0
+layout_mode = 0
+offset_left = 19.0
+offset_top = 7.0
+offset_right = 47.0
+offset_bottom = 28.0
 text = "00:"
+label_settings = ExtResource("3_y7iq2")
 horizontal_alignment = 2
 
 [node name="SecondsLabel" type="Label" parent="LevelTimerContainer"]
-layout_mode = 2
-offset_left = 24.0
-offset_top = 8.0
-offset_right = 64.0
-offset_bottom = 31.0
+layout_mode = 0
+offset_left = 49.0
+offset_top = 7.0
+offset_right = 77.0
+offset_bottom = 28.0
 text = "00."
+label_settings = ExtResource("3_y7iq2")
 horizontal_alignment = 2
 
 [node name="MillisecondsLabel" type="Label" parent="LevelTimerContainer"]
-layout_mode = 2
-offset_left = 53.0
-offset_top = 8.0
-offset_right = 93.0
-offset_bottom = 31.0
+layout_mode = 0
+offset_left = 78.0
+offset_top = 7.0
+offset_right = 114.0
+offset_bottom = 28.0
 text = "000"
+label_settings = ExtResource("3_y7iq2")
 horizontal_alignment = 2
 
 [node name="FloatBarContainer" type="Control" parent="."]
@@ -110,10 +162,10 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Float Remaining"
+label_settings = ExtResource("3_y7iq2")
 horizontal_alignment = 1
 
 [node name="RopeBalanceBar" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -141,6 +193,7 @@ offset_right = 52.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Rope Balance"
+label_settings = ExtResource("3_y7iq2")
 
 [node name="HScrollBar" type="HScrollBar" parent="RopeBalanceBar"]
 layout_mode = 1

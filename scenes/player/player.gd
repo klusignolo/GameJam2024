@@ -118,7 +118,8 @@ func set_animation():
 			animation_player.play("moving")
 	else:
 		if is_on_rope or Input.is_action_pressed("down"):
-			animation_player.play("squish")
+			var animation = "balance" if is_on_rope else "squish"
+			animation_player.play(animation)
 		else:
 			if velocity.x != 0:
 				animation_player.play("moving")
@@ -127,4 +128,5 @@ func set_animation():
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	fell_down.emit()
+	if global_position.y > 0:
+		fell_down.emit()

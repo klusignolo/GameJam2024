@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 
 var time := 0.0
 var minutes := 0.0

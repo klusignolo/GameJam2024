@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c3qblx4byjcyy"]
+
+[ext_resource type="FontFile" uid="uid://btdu3w4tphf34" path="res://fonts/ghost_stories.ttf" id="1_o6n31"]
+
+[resource]
+font = ExtResource("1_o6n31")
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.545098)
