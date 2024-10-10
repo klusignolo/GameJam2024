@@ -8,7 +8,7 @@ func _process(_delta: float):
 		$Camera2D.position.x = $Player.position.x - 640
 
 func start_level():
-	get_tree().change_scene_to_file("res://scenes/levels/level_one.tscn")
+	TransitionLayer.change_scene("res://scenes/levels/level_one.tscn")
 
 
 func _on_cannon_player_fired_away() -> void:

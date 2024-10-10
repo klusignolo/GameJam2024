@@ -17,8 +17,7 @@ func _process(_delta: float) -> void:
 		UI.hide_all_hud()
 		get_tree().change_scene_to_packed(main_menu)
 		
-	$Camera.position.x = min($Markers/EndingPosition.position.x - 500, $Player.position.x)
-	$Music.position = $Player.position
+	$Camera.position.x = min($Markers/EndingPosition.position.x - 200, $Player.position.x)
 	
 	if $Player.position.distance_to($Markers/StartingPosition.position) > 50 and player_is_at_start:
 		UI.start_level_timer()
@@ -67,6 +66,7 @@ func fly_player_in_from_left():
 	tween.tween_property($FlyInPath/PathFollow2D/Sprite2D, "rotation_degrees", -35, .5)
 	tween.play()
 	await tween.finished
+	
 	$FlyInPath/PathFollow2D/Sprite2D.visible = false
 	$Player.visible = true
 	player_is_at_start = true

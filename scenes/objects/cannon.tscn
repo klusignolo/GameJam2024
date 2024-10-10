@@ -17,6 +17,7 @@ _data = {
 point_count = 6
 
 [node name="Cannon" type="Node2D"]
+z_index = 1
 script = ExtResource("1_656es")
 
 [node name="Body" type="Node2D" parent="."]

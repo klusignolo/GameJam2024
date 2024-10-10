@@ -91,7 +91,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
+	if direction and visible: # Check for visible so that character doensn't move when hidden
 		$Sprite2D.flip_h = direction < 0
 		velocity.x = direction * speed
 	else:
