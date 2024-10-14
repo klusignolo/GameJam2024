@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://c55w6px34tlpd"]
+[gd_scene load_steps=10 format=4 uid="uid://c55w6px34tlpd"]
 
 [ext_resource type="Script" path="res://scenes/levels/world.gd" id="1_r0sea"]
+[ext_resource type="Texture2D" uid="uid://dlla0cb425odq" path="res://graphics/backgrounds/background_blur.png" id="2_axgmm"]
 [ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://scenes/player/player.tscn" id="2_fmr4e"]
-[ext_resource type="Texture2D" uid="uid://caj0aniegyjmd" path="res://graphics/backgrounds/background_one_blur.png" id="3_2ourq"]
 [ext_resource type="TileSet" uid="uid://bgksmexnig22v" path="res://tilesets/platform_tiles.tres" id="3_s7u8g"]
 [ext_resource type="PackedScene" uid="uid://i8bfalg8u206" path="res://scenes/objects/cannon.tscn" id="4_j77w1"]
 [ext_resource type="AudioStream" uid="uid://57nhvvlniu4n" path="res://audio/ring master.mp3" id="6_o2hmk"]
 [ext_resource type="Texture2D" uid="uid://br2qle6a07vdx" path="res://graphics/player/Ghost-still.png" id="8_e4c7u"]
+[ext_resource type="PackedScene" uid="uid://dylldpmk6rrgj" path="res://scenes/objects/can_light.tscn" id="9_6ogh5"]
 
 [sub_resource type="Curve2D" id="Curve2D_u3x02"]
 _data = {
@@ -17,38 +18,64 @@ point_count = 11
 [node name="World" type="Node2D"]
 script = ExtResource("1_r0sea")
 
+[node name="Lights" type="Node" parent="."]
+
+[node name="CanLight" parent="Lights" instance=ExtResource("9_6ogh5")]
+position = Vector2(117, 51)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+color = Color(0.544974, 0.544974, 0.544974, 1)
+blend_mode = 1
+
 [node name="RegularBackground" type="Node2D" parent="."]
+light_mask = 2
 z_index = -2
-metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="RegularBackground"]
-position = Vector2(2316, 360)
-texture = ExtResource("3_2ourq")
+light_mask = 2
+position = Vector2(1920, 360)
+texture = ExtResource("2_axgmm")
+flip_h = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="RegularBackground"]
-position = Vector2(3860, 360)
-texture = ExtResource("3_2ourq")
+light_mask = 2
+position = Vector2(3200, 360)
+texture = ExtResource("2_axgmm")
 
 [node name="Sprite2D5" type="Sprite2D" parent="RegularBackground"]
-position = Vector2(5404, 360)
-texture = ExtResource("3_2ourq")
+light_mask = 2
+position = Vector2(4480, 360)
+texture = ExtResource("2_axgmm")
+flip_h = true
 
 [node name="Sprite2D6" type="Sprite2D" parent="RegularBackground"]
-position = Vector2(6948, 360)
-texture = ExtResource("3_2ourq")
+light_mask = 2
+position = Vector2(5760, 360)
+texture = ExtResource("2_axgmm")
+
+[node name="Sprite2D8" type="Sprite2D" parent="RegularBackground"]
+light_mask = 2
+position = Vector2(7040, 360)
+texture = ExtResource("2_axgmm")
+flip_h = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="RegularBackground"]
-position = Vector2(-772, 360)
-texture = ExtResource("3_2ourq")
+light_mask = 2
+position = Vector2(-640, 360)
+texture = ExtResource("2_axgmm")
+flip_h = true
 
 [node name="Sprite2D7" type="Sprite2D" parent="RegularBackground"]
-position = Vector2(-2316, 360)
-texture = ExtResource("3_2ourq")
+light_mask = 2
+position = Vector2(-1920, 360)
+texture = ExtResource("2_axgmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="RegularBackground"]
-position = Vector2(772, 360)
-texture = ExtResource("3_2ourq")
+light_mask = 2
+position = Vector2(640, 360)
+texture = ExtResource("2_axgmm")
 
 [node name="Cannon" parent="." instance=ExtResource("4_j77w1")]
 position = Vector2(6573, 635)
@@ -75,6 +102,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-445, -461)
 stream = ExtResource("6_o2hmk")
 volume_db = -4.953
+autoplay = true
 metadata/_edit_lock_ = true
 
 [node name="Rings" type="Node2D" parent="."]
