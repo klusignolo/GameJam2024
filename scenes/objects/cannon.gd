@@ -27,6 +27,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	tween.chain().tween_property($Body/Wick, "position", Vector2(-39, -35), .25)
 	tween.play()
 	await tween.finished
+	$Body/Wick.visible = false
 	# Make sprite belong to the cannon projectile path
 	player_sprite.reparent($Body/Path2D/PathFollow2D)
 	var new_tween = get_tree().create_tween()

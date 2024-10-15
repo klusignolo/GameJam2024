@@ -79,8 +79,8 @@ func _physics_process(delta: float) -> void:
 	var is_falling = not is_on_floor() and velocity.y > 0
 	is_floating = Input.is_action_pressed("jump") and is_falling and Globals.float_remaining > 0
 	
-	if Input.is_action_pressed("jump") and is_falling and Globals.float_remaining <=0:
-		sfx_hover_fail.play()
+	#if Input.is_action_pressed("jump") and is_falling and Globals.float_remaining <=0:
+		#sfx_hover_fail.play()
 		
 	if is_floating and not sfx_hover.playing:
 		sfx_hover.play()
@@ -128,5 +128,6 @@ func set_animation():
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	if global_position.y > 0:
+	if visible and global_position.y > 0:
+		sfx_hover_fail.play()
 		fell_down.emit()

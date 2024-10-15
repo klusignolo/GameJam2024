@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_ceofj")
 
 [node name="BackgroundOne" type="Sprite2D" parent="."]
+light_mask = 2
 position = Vector2(640, 360)
 texture = ExtResource("2_gqjcn")
 

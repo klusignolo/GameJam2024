@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://i8bfalg8u206"]
+[gd_scene load_steps=9 format=3 uid="uid://i8bfalg8u206"]
 
 [ext_resource type="Texture2D" uid="uid://bshausllsrimh" path="res://graphics/objects/cannon/wick.png" id="1_8ewdr"]
 [ext_resource type="Script" path="res://scenes/objects/cannon.gd" id="1_656es"]
 [ext_resource type="Texture2D" uid="uid://br2qle6a07vdx" path="res://graphics/player/Ghost-still.png" id="2_cswmp"]
 [ext_resource type="Texture2D" uid="uid://p8vk6h1jlkmp" path="res://graphics/objects/cannon/cannon.png" id="2_d7p0m"]
 [ext_resource type="Texture2D" uid="uid://c64a2n31bgr76" path="res://graphics/objects/cannon/wheel.png" id="3_771je"]
+[ext_resource type="Texture2D" uid="uid://c5rtym041ic0k" path="res://graphics/lights/light.png" id="4_48owq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48fqd"]
 radius = 25.2248
@@ -37,6 +38,15 @@ position = Vector2(-63.4935, -37.3842)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_8ewdr")
 flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Body/Wick"]
+position = Vector2(-15.0988, -4.90864)
+scale = Vector2(0.15, 0.15)
+color = Color(1, 1, 1, 0.396078)
+energy = 1.5
+range_item_cull_mask = 2
+shadow_item_cull_mask = 2
+texture = ExtResource("4_48owq")
 
 [node name="Cannon" type="Sprite2D" parent="Body"]
 position = Vector2(-4.34817, -49.9108)

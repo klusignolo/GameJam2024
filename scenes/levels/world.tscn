@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://c55w6px34tlpd"]
+[gd_scene load_steps=9 format=4 uid="uid://c55w6px34tlpd"]
 
 [ext_resource type="Script" path="res://scenes/levels/world.gd" id="1_r0sea"]
 [ext_resource type="Texture2D" uid="uid://dlla0cb425odq" path="res://graphics/backgrounds/background_blur.png" id="2_axgmm"]
 [ext_resource type="PackedScene" uid="uid://cesvwbsp15wqc" path="res://scenes/player/player.tscn" id="2_fmr4e"]
 [ext_resource type="TileSet" uid="uid://bgksmexnig22v" path="res://tilesets/platform_tiles.tres" id="3_s7u8g"]
 [ext_resource type="PackedScene" uid="uid://i8bfalg8u206" path="res://scenes/objects/cannon.tscn" id="4_j77w1"]
-[ext_resource type="AudioStream" uid="uid://57nhvvlniu4n" path="res://audio/ring master.mp3" id="6_o2hmk"]
 [ext_resource type="Texture2D" uid="uid://br2qle6a07vdx" path="res://graphics/player/Ghost-still.png" id="8_e4c7u"]
 [ext_resource type="PackedScene" uid="uid://dylldpmk6rrgj" path="res://scenes/objects/can_light.tscn" id="9_6ogh5"]
 
@@ -96,13 +95,6 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("2_fmr4e")]
 position = Vector2(445, 461)
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="Music" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2(-445, -461)
-stream = ExtResource("6_o2hmk")
-volume_db = -4.953
-autoplay = true
 metadata/_edit_lock_ = true
 
 [node name="Rings" type="Node2D" parent="."]
