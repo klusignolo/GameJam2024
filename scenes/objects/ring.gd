@@ -2,9 +2,11 @@ extends StaticBody2D
 
 var has_player_entered_ring = false
 var has_score_been_claimed = false
+@onready var sfx_ring_collect = $sfx_ring_collect
 
 func _on_ring_exit_body_entered(_body: Node2D) -> void:
 	if has_player_entered_ring and not has_score_been_claimed:
+		sfx_ring_collect.play()
 		has_score_been_claimed = true
 		Globals.ring_count += 1               
 		has_player_entered_ring = false 

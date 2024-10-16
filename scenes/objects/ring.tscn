@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl1owjckbnl1y"]
+[gd_scene load_steps=6 format=3 uid="uid://bl1owjckbnl1y"]
 
 [ext_resource type="Script" path="res://scenes/objects/ring.gd" id="1_8sclg"]
 [ext_resource type="Texture2D" uid="uid://bdsi1x20a8d73" path="res://graphics/objects/ring_left.png" id="2_d7ekm"]
 [ext_resource type="Texture2D" uid="uid://gfjo2ut165fw" path="res://graphics/objects/ring_right.png" id="3_y0hx3"]
+[ext_resource type="AudioStream" uid="uid://cbt1emmf7xhf3" path="res://audio/ring_collect.mp3" id="4_122t1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rymvw"]
 height = 110.0
@@ -49,6 +50,10 @@ z_as_relative = false
 position = Vector2(-0.0999947, 2.7)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_y0hx3")
+
+[node name="sfx_ring_collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_122t1")
+volume_db = -7.0
 
 [connection signal="body_entered" from="RingExit" to="." method="_on_ring_exit_body_entered"]
 [connection signal="body_entered" from="RingEntry" to="." method="_on_ring_entry_body_entered"]
