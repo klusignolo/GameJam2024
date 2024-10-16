@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://p8vk6h1jlkmp" path="res://graphics/objects/cannon/cannon.png" id="2_d7p0m"]
 [ext_resource type="Texture2D" uid="uid://c64a2n31bgr76" path="res://graphics/objects/cannon/wheel.png" id="3_771je"]
 [ext_resource type="Texture2D" uid="uid://c5rtym041ic0k" path="res://graphics/lights/light.png" id="4_48owq"]
-[ext_resource type="AudioStream" uid="uid://dkfjmng75j3a3" path="res://scenes/objects/cannon.mp3" id="7_0xrbj"]
+[ext_resource type="AudioStream" uid="uid://dkfjmng75j3a3" path="res://audio/cannon.mp3" id="7_0xrbj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48fqd"]
 radius = 25.2248
