@@ -192,27 +192,26 @@ libraries = {
 
 [node name="Sound" type="Node" parent="."]
 
-[node name="sfx_jump" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="sfx_jump" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("7_nj6xq")
 volume_db = 4.952
 pitch_scale = 1.27
 bus = &"sfx"
 
-[node name="sfx_hover" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="sfx_hover" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("8_tjq7w")
 volume_db = 2.971
-attenuation = 0.307786
 bus = &"sfx"
 
-[node name="sfx_phase_in" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="sfx_phase_in" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("9_r2eep")
 bus = &"sfx"
 
-[node name="sfx_phase_out" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="sfx_phase_out" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("10_fo2hl")
 bus = &"sfx"
 
-[node name="sfx_hover_fail" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="sfx_hover_fail" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("11_bmu7q")
 bus = &"sfx"
 
