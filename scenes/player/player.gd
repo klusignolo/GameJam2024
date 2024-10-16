@@ -15,11 +15,11 @@ var is_floating := false
 signal fell_down
 
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
-@onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
-@onready var sfx_hover: AudioStreamPlayer2D = $sfx_hover
-@onready var sfx_phase_out: AudioStreamPlayer2D = $sfx_phase_out
-@onready var sfx_phase_in: AudioStreamPlayer2D = $sfx_phase_in
-@onready var sfx_hover_fail: AudioStreamPlayer2D = $sfx_hover_fail
+@onready var sfx_jump: AudioStreamPlayer2D = $Sound/sfx_jump
+@onready var sfx_hover: AudioStreamPlayer2D = $Sound/sfx_hover
+@onready var sfx_phase_out: AudioStreamPlayer2D = $Sound/sfx_phase_out
+@onready var sfx_phase_in: AudioStreamPlayer2D = $Sound/sfx_phase_in
+@onready var sfx_hover_fail: AudioStreamPlayer2D = $Sound/sfx_hover_fail
 
 var is_on_rope := false:
 	set(value):

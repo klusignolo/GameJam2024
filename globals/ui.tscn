@@ -235,7 +235,9 @@ offset_right = 197.0
 offset_bottom = 19.0
 color = Color(0.671206, 0, 0.0532637, 1)
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_dsv6a")
+volume_db = -8.667
 autoplay = true
+bus = &"music"
 parameters/looping = true

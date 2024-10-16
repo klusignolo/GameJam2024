@@ -14,6 +14,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
 		UI.hide_all_hud()
+		Globals.ring_total = 0
 		TransitionLayer.change_scene("res://scenes/main_menu.tscn")
 		
 	$Camera.position.x = min($Markers/EndingPosition.position.x - 200, $Player.position.x)
