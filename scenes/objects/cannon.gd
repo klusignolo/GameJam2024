@@ -3,7 +3,7 @@ extends Node2D
 signal player_fired_away
 var player_body
 var is_firing := false
-var can_fire := false
+@export var can_fire := false
 @onready var player_sprite = $Body/PlayerSprite
 @onready var sfx_cannon = $sfx_cannon
 
@@ -12,7 +12,6 @@ func _process(_delta: float) -> void:
 		player_body.global_position = player_sprite.global_position
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	can_fire = Globals.collected_all_rings
 	if is_firing or not can_fire: return
 	is_firing = true
 	sfx_cannon.play()

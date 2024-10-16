@@ -23,9 +23,16 @@ func _process(_delta: float) -> void:
 		UI.start_level_timer()
 		player_is_at_start = false
 	if $Player.position.distance_to($Markers/EndingPosition.position) < 50 and Globals.collected_all_rings:
-		UI.stop_level_timer()
+		_on_reached_finish_line()
 		
 	set_player_near_tile_properties()
+	
+
+func _on_reached_finish_line():
+	UI.stop_level_timer()
+	UI.blink_level_timer()
+	Globals.high_scores[Globals.selected_level] = UI.level_timer.get_time_formatted()
+	$Cannon.can_fire = true
 	
 	
 func set_player_near_tile_properties():

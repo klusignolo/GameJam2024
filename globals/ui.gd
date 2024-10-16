@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var score_label = $RingScoreContainer/ScoreLabel
 var green: Color = Color("86CF78")
 var orange: Color = Color("FBE7AB")
+@onready var level_timer = $LevelTimerContainer
 
 func _ready():
 	hide_all_hud()
@@ -42,6 +43,9 @@ func reset_level_timer():
 	
 func stop_level_timer():
 	$LevelTimerContainer.stop()
+	
+func blink_level_timer():
+	$AnimationPlayer.play("blink_level_timer")
 	
 func update_level_label():
 	$LevelNameControl/LevelLabel.text = "Level: " + str(Globals.selected_level)
