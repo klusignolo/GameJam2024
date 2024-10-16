@@ -5,6 +5,7 @@ var player_is_at_start := false
 
 func _ready() -> void:
 	UI.show_all_hud()
+	UI.reset_level_timer()
 	$Player.visible = false
 	fly_player_in_from_left()
 	var rings = get_tree().get_nodes_in_group("Ring")

@@ -20,6 +20,7 @@ config/icon="res://graphics/player/Ghost-still.png"
 Globals="*res://globals/globals.gd"
 UI="*res://globals/ui.tscn"
 TransitionLayer="*res://globals/transition_layer.tscn"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [display]
 

@@ -27,7 +27,7 @@ rotation = 0.357792
 
 [node name="CanLight3" parent="Lights" index="5" instance=ExtResource("2_rh055")]
 position = Vector2(1948, -93)
-rotation = 1.15715
+rotation = 1.37183
 
 [node name="CanLight4" parent="Lights" index="6" instance=ExtResource("2_rh055")]
 position = Vector2(2665, -45)

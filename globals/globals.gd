@@ -19,9 +19,9 @@ var level_scenes = {
 	3: "res://scenes/levels/level_three.tscn"
 }
 var high_scores = {
-	1: null,
-	2: null,
-	3: null
+	1: "--",
+	2: "--",
+	3: "--"
 }
 var player_lost_balance = false
 var player_is_on_floor := true:

@@ -102,6 +102,17 @@ theme_override_fonts/font = ExtResource("3_gul0r")
 theme_override_font_sizes/font_size = 18
 text = "Audio Level"
 
+[node name="HighScoresButton" type="Button" parent="MenuButtonsContainer/MainMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gul0r")
+theme_override_font_sizes/font_size = 18
+text = "High Scores"
+
+[node name="HSeparator" type="HSeparator" parent="MenuButtonsContainer/MainMenuContainer"]
+layout_mode = 2
+
 [node name="InstructionsLabel" type="Label" parent="MenuButtonsContainer/MainMenuContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_gul0r")
@@ -172,6 +183,33 @@ theme_override_fonts/font = ExtResource("3_gul0r")
 theme_override_font_sizes/font_size = 18
 text = "Back"
 
+[node name="ScoresContainer" type="VBoxContainer" parent="MenuButtonsContainer"]
+visible = false
+layout_mode = 2
+
+[node name="LevelOneScoreLabel" type="Label" parent="MenuButtonsContainer/ScoresContainer"]
+layout_mode = 2
+text = "Level 1: --"
+label_settings = ExtResource("4_13yq3")
+
+[node name="LevelTwoScoreLabel" type="Label" parent="MenuButtonsContainer/ScoresContainer"]
+layout_mode = 2
+text = "Level 2: --"
+label_settings = ExtResource("4_13yq3")
+
+[node name="LevelThreeScoreLabel" type="Label" parent="MenuButtonsContainer/ScoresContainer"]
+layout_mode = 2
+text = "Level 3: --"
+label_settings = ExtResource("4_13yq3")
+
+[node name="VolumeBackButton" type="Button" parent="MenuButtonsContainer/ScoresContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gul0r")
+theme_override_font_sizes/font_size = 18
+text = "Back"
+
 [node name="Cannon" parent="." instance=ExtResource("5_n0hbx")]
 position = Vector2(912, 649)
 can_fire = true
@@ -208,6 +246,8 @@ libraries = {
 [connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/LevelButton" to="." method="_on_level_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/ControlsButton" to="." method="_on_controls_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/AudioButton" to="." method="_on_audio_button_button_up"]
+[connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/HighScoresButton" to="." method="_on_high_scores_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/ControlsContainer/BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/VolumeContainer/VolumeBackButton" to="." method="_on_back_button_button_up"]
+[connection signal="button_up" from="MenuButtonsContainer/ScoresContainer/VolumeBackButton" to="." method="_on_back_button_button_up"]
 [connection signal="player_fired_away" from="Cannon" to="." method="_on_cannon_player_fired_away"]

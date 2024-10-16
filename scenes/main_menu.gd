@@ -4,6 +4,12 @@ var is_player_outside := false
 
 func _ready():
 	$AnimationPlayer.play("instructions_fade")
+	SilentWolf.configure({
+		"api_key": "zUsuLiZVRa7nnSzXzCWeF2IlrBfR3PaV8izxcbKt",
+		"game_id": "three ring circus",
+		"game_version": "1.0.0",
+		"log_level": 0
+	})
 
 func _process(_delta: float):
 	if is_player_outside:
@@ -27,9 +33,10 @@ func _on_level_button_button_up() -> void:
 
 
 func _on_back_button_button_up() -> void:
-	$MenuButtonsContainer/ControlsContainer.visible = false
 	$MenuButtonsContainer/MainMenuContainer.visible = true
+	$MenuButtonsContainer/ControlsContainer.visible = false
 	$MenuButtonsContainer/VolumeContainer.visible = false
+	$MenuButtonsContainer/ScoresContainer.visible = false
 
 func _on_controls_button_button_up() -> void:
 	$MenuButtonsContainer/ControlsContainer.visible = true
@@ -39,3 +46,17 @@ func _on_controls_button_button_up() -> void:
 func _on_audio_button_button_up() -> void:
 	$MenuButtonsContainer/MainMenuContainer.visible = false
 	$MenuButtonsContainer/VolumeContainer.visible = true
+
+
+func _on_high_scores_button_button_up() -> void:
+	load_scores()
+	$MenuButtonsContainer/MainMenuContainer.visible = false
+	$MenuButtonsContainer/ScoresContainer.visible = true
+	
+func load_scores():
+	var level_one_score = Globals.high_scores[1]
+	$MenuButtonsContainer/ScoresContainer/LevelOneScoreLabel.text = "Level 1: " + level_one_score
+	var level_two_score = Globals.high_scores[2]
+	$MenuButtonsContainer/ScoresContainer/LevelTwoScoreLabel.text = "Level 1: " + level_two_score
+	var level_three_score = Globals.high_scores[3]
+	$MenuButtonsContainer/ScoresContainer/LevelThreeScoreLabel.text = "Level 1: " + level_three_score
