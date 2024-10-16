@@ -2,60 +2,71 @@
 
 [ext_resource type="PackedScene" uid="uid://c55w6px34tlpd" path="res://scenes/levels/world.tscn" id="1_dxibp"]
 [ext_resource type="Texture2D" uid="uid://cd5g4whtxjist" path="res://graphics/backgrounds/background2_blur.png" id="2_fdjgt"]
-[ext_resource type="Texture2D" uid="uid://dyu86im6aseth" path="res://graphics/easter_eggs/nick.jpg" id="2_m8657"]
 [ext_resource type="PackedScene" uid="uid://dylldpmk6rrgj" path="res://scenes/objects/can_light.tscn" id="2_xo5wf"]
 [ext_resource type="PackedScene" uid="uid://bl1owjckbnl1y" path="res://scenes/objects/ring.tscn" id="3_n2ut2"]
+[ext_resource type="Texture2D" uid="uid://cp8qynn30niec" path="res://graphics/easter_eggs/nick_three.jpg" id="4_pbeff"]
 
 [node name="World" instance=ExtResource("1_dxibp")]
 
 [node name="CanLight2" parent="Lights" index="1" instance=ExtResource("2_xo5wf")]
 position = Vector2(579, 8)
 
-[node name="CanLight3" parent="Lights" index="2" instance=ExtResource("2_xo5wf")]
+[node name="CanLight15" parent="Lights" index="2" instance=ExtResource("2_xo5wf")]
+position = Vector2(-2393, -45)
+
+[node name="CanLight16" parent="Lights" index="3" instance=ExtResource("2_xo5wf")]
+position = Vector2(-1924, -72)
+rotation = 0.977384
+
+[node name="CanLight17" parent="Lights" index="4" instance=ExtResource("2_xo5wf")]
+position = Vector2(-1589, -64.9999)
+rotation = 1.58999
+
+[node name="CanLight3" parent="Lights" index="5" instance=ExtResource("2_xo5wf")]
 position = Vector2(1358, -180)
 rotation = 0.644027
 
-[node name="CanLight4" parent="Lights" index="3" instance=ExtResource("2_xo5wf")]
+[node name="CanLight4" parent="Lights" index="6" instance=ExtResource("2_xo5wf")]
 position = Vector2(1872, -121)
 rotation = 0.966912
 
-[node name="CanLight5" parent="Lights" index="4" instance=ExtResource("2_xo5wf")]
+[node name="CanLight5" parent="Lights" index="7" instance=ExtResource("2_xo5wf")]
 position = Vector2(2386, -112)
 rotation = 0.966912
 
-[node name="CanLight6" parent="Lights" index="5" instance=ExtResource("2_xo5wf")]
+[node name="CanLight6" parent="Lights" index="8" instance=ExtResource("2_xo5wf")]
 position = Vector2(2967, -86)
 rotation = 1.07512
 
-[node name="CanLight7" parent="Lights" index="6" instance=ExtResource("2_xo5wf")]
+[node name="CanLight7" parent="Lights" index="9" instance=ExtResource("2_xo5wf")]
 position = Vector2(3560, -104)
 rotation = 0.752237
 
-[node name="CanLight8" parent="Lights" index="7" instance=ExtResource("2_xo5wf")]
+[node name="CanLight8" parent="Lights" index="10" instance=ExtResource("2_xo5wf")]
 position = Vector2(4067, -167)
 rotation = 0.726057
 
-[node name="CanLight9" parent="Lights" index="8" instance=ExtResource("2_xo5wf")]
+[node name="CanLight9" parent="Lights" index="11" instance=ExtResource("2_xo5wf")]
 position = Vector2(4835, -33)
 rotation = 1.04022
 
-[node name="CanLight10" parent="Lights" index="9" instance=ExtResource("2_xo5wf")]
+[node name="CanLight10" parent="Lights" index="12" instance=ExtResource("2_xo5wf")]
 position = Vector2(5098, -24)
 rotation = -0.0506145
 
-[node name="CanLight14" parent="Lights" index="10" instance=ExtResource("2_xo5wf")]
+[node name="CanLight14" parent="Lights" index="13" instance=ExtResource("2_xo5wf")]
 position = Vector2(5098, -24)
 rotation = 0.701622
 
-[node name="CanLight11" parent="Lights" index="11" instance=ExtResource("2_xo5wf")]
+[node name="CanLight11" parent="Lights" index="14" instance=ExtResource("2_xo5wf")]
 position = Vector2(5486, -24)
 rotation = -0.0506145
 
-[node name="CanLight12" parent="Lights" index="12" instance=ExtResource("2_xo5wf")]
+[node name="CanLight12" parent="Lights" index="15" instance=ExtResource("2_xo5wf")]
 position = Vector2(6036, -13)
 rotation = -0.0506145
 
-[node name="CanLight13" parent="Lights" index="13" instance=ExtResource("2_xo5wf")]
+[node name="CanLight13" parent="Lights" index="16" instance=ExtResource("2_xo5wf")]
 position = Vector2(6391, -76)
 rotation = 0.595157
 
@@ -85,8 +96,8 @@ texture = ExtResource("2_fdjgt")
 
 [node name="Nick" type="Sprite2D" parent="RegularBackground" index="8"]
 z_index = 3
-position = Vector2(-2139, 401)
-texture = ExtResource("2_m8657")
+position = Vector2(-2055, 380)
+texture = ExtResource("4_pbeff")
 
 [node name="Ring4" parent="Rings" index="0" instance=ExtResource("3_n2ut2")]
 position = Vector2(1713, 224)
