@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://graphics/player/Ghost-still.png"
 
+[audio]
+
+buses/default_bus_layout="res://themes/default_bus_layout.tres"
+
 [autoload]
 
 Globals="*res://globals/globals.gd"
