@@ -4,6 +4,7 @@ signal player_fired_away
 var player_body
 var is_firing := false
 @onready var player_sprite = $Body/PlayerSprite
+@onready var sfx_cannon = $sfx_cannon
 
 func _process(_delta: float) -> void:
 	if player_body:
@@ -12,6 +13,7 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if is_firing: return
 	is_firing = true
+	sfx_cannon.play()
 	player_body = body
 	player_body.visible = false
 	player_sprite.visible = true
