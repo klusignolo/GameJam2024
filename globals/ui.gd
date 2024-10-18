@@ -10,6 +10,9 @@ func _ready():
 	hide_all_hud()
 	hide_balance_bar()
 	hide_phase_message()
+	Leaderboard.configure_silentwolf()
+	#Leaderboard.add_score("Kevin",25000,1)
+	#Leaderboard.get_top_scores(1)
 
 func hide_all_hud():
 	visible = false
