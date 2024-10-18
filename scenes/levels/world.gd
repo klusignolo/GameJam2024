@@ -91,4 +91,5 @@ func transition_to_next_level():
 	else:
 		Globals.selected_level += 1
 		destination_scene = Globals.level_scenes[Globals.selected_level]
+	Globals.ring_count = 0
 	TransitionLayer.change_scene(destination_scene)

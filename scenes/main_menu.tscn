@@ -62,6 +62,7 @@ script = ExtResource("1_ceofj")
 
 [node name="BackgroundOne" type="Sprite2D" parent="."]
 light_mask = 2
+z_index = -1
 position = Vector2(640, 360)
 texture = ExtResource("2_1jqti")
 
@@ -234,9 +235,23 @@ position = Vector2(11, 23)
 position = Vector2(1224, 14)
 rotation = 1.14319
 
+[node name="CanLight4" parent="Lights" instance=ExtResource("8_b0owh")]
+position = Vector2(465, -25)
+rotation = 1.14319
+
+[node name="CanLight6" parent="Lights" instance=ExtResource("8_b0owh")]
+position = Vector2(835, -27)
+rotation = 0.376991
+
+[node name="CanLight5" parent="Lights" instance=ExtResource("8_b0owh")]
+position = Vector2(682, -37)
+rotation = 1.14319
+metadata/_edit_lock_ = true
+
 [node name="CanLight3" parent="Lights" instance=ExtResource("8_b0owh")]
-position = Vector2(641, -99)
-rotation = 0.652753
+position = Vector2(636, -31)
+rotation = 0.39968
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
