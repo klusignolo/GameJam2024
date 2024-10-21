@@ -19,7 +19,7 @@ func load_high_scores():
 		score_label_dict[level_num].text = label_text
 	
 func format_time(time_in_ms: int) -> String:
-	var total_seconds: int = time_in_ms / 1000
+	var total_seconds: int = int(time_in_ms / 1000.0)
 	var minutes: int = total_seconds / 60
 	var seconds: int = total_seconds % 60
 	var milliseconds: int = time_in_ms % 1000

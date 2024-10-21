@@ -46,7 +46,6 @@ func get_top_scores() -> Dictionary:
 	).sw_get_scores_complete
 	
 	var score_dict = {1: [],2: [],3: []}
-	var top_scores = []
 	for score in sw_result.scores:
 		var associated_score_level = 0
 		# subtract the offset until raw score remains
@@ -72,7 +71,6 @@ func check_if_high_score(level: int, score_to_check: float) -> bool:
 	if not is_configured: return false
 	var top_scores = await get_top_scores()
 	var top_level_scores = top_scores[level]
-	var is_high_score = false
 	if top_level_scores.size() < 5: return true
 	for score in top_level_scores:
 		if score_to_check < score.score:
