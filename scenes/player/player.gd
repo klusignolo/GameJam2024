@@ -43,6 +43,8 @@ var is_touching_wall := false:
 				UI.hide_phase_message()
 
 func _physics_process(delta: float) -> void:
+	if Globals.is_submitting_score: return
+	
 	# Fall through ropes if falling
 	set_collision_mask_value(3, not Globals.player_lost_balance)
 	

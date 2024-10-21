@@ -7,6 +7,8 @@ const GROUND_LAYER_ID := 4
 const ROPE_LAYER_ID := 8
 const WALL_LAYER_ID := 16
 
+var is_submitting_score := false
+
 var selected_level := 1:
 	set(value):
 		print("Updating to " + str(value))

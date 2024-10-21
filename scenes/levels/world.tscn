@@ -23,7 +23,7 @@ script = ExtResource("1_r0sea")
 position = Vector2(117, 51)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
-color = Color(0.544974, 0.544974, 0.544974, 1)
+color = Color(0.758192, 0.758192, 0.758192, 1)
 blend_mode = 1
 
 [node name="RegularBackground" type="Node2D" parent="."]

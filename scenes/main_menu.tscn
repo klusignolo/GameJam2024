@@ -214,7 +214,7 @@ tile_set = ExtResource("7_s4nht")
 [node name="Lights" type="Node" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
-color = Color(0.505344, 0.505344, 0.505344, 1)
+color = Color(0.728822, 0.728822, 0.728822, 1)
 blend_mode = 1
 
 [node name="CanLight" parent="Lights" instance=ExtResource("8_b0owh")]

@@ -41,6 +41,7 @@ func add_score(player_name: String, time_in_ms: int, level: int) -> void:
 	
 func get_top_scores() -> Dictionary:
 	# Fetch leaderboard from SilentWolf
+	print("Getting scores")
 	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(200
 	).sw_get_scores_complete
 	
@@ -49,7 +50,9 @@ func get_top_scores() -> Dictionary:
 	for score in sw_result.scores:
 		var associated_score_level = 0
 		# subtract the offset until raw score remains
-		while score.score > OFFSET:
+		print("adjusting score")
+		while score.score >= OFFSET:
+			print("adjustment")
 			score.score -= OFFSET
 			associated_score_level += 1
 		score_dict[associated_score_level].append(

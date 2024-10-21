@@ -23,8 +23,8 @@ buses/default_bus_layout="res://themes/default_bus_layout.tres"
 
 Globals="*res://globals/globals.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
-UI="*res://globals/ui.tscn"
 TransitionLayer="*res://globals/transition_layer.tscn"
+UI="*res://globals/ui.tscn"
 Leaderboard="*res://globals/leaderboard.gd"
 
 [display]

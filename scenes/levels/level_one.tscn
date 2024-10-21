@@ -47,7 +47,7 @@ position = Vector2(3098, -69.0002)
 rotation = 0.63879
 
 [node name="CanLight7" parent="Lights" index="10" instance=ExtResource("2_rh055")]
-position = Vector2(3631, -94.9999)
+position = Vector2(3801, -293)
 rotation = 1.16239
 
 [node name="CanLight21" parent="Lights" index="11" instance=ExtResource("2_rh055")]
@@ -67,27 +67,35 @@ metadata/_edit_lock_ = true
 position = Vector2(4112, -143)
 rotation = 0.0383972
 
-[node name="CanLight10" parent="Lights" index="15" instance=ExtResource("2_rh055")]
+[node name="CanLight23" parent="Lights" index="15" instance=ExtResource("2_rh055")]
+position = Vector2(4542, -278)
+rotation = 0.897099
+
+[node name="CanLight10" parent="Lights" index="16" instance=ExtResource("2_rh055")]
 position = Vector2(5160, -110)
 rotation = 0.417134
 
-[node name="CanLight11" parent="Lights" index="16" instance=ExtResource("2_rh055")]
+[node name="CanLight22" parent="Lights" index="17" instance=ExtResource("2_rh055")]
+position = Vector2(5720, -118)
+rotation = 1.49051
+
+[node name="CanLight11" parent="Lights" index="18" instance=ExtResource("2_rh055")]
 position = Vector2(5633, -79.9998)
 rotation = 0.417134
 
-[node name="CanLight20" parent="Lights" index="17" instance=ExtResource("2_rh055")]
+[node name="CanLight20" parent="Lights" index="19" instance=ExtResource("2_rh055")]
 position = Vector2(5924, -166)
 rotation = 0.74002
 
-[node name="CanLight12" parent="Lights" index="18" instance=ExtResource("2_rh055")]
+[node name="CanLight12" parent="Lights" index="20" instance=ExtResource("2_rh055")]
 position = Vector2(6262, -63)
 rotation = 0.792379
 
-[node name="CanLight13" parent="Lights" index="19" instance=ExtResource("2_rh055")]
+[node name="CanLight13" parent="Lights" index="21" instance=ExtResource("2_rh055")]
 position = Vector2(6897, -12.0002)
 rotation = 1.04371
 
-[node name="CanLight19" parent="Lights" index="20" instance=ExtResource("2_rh055")]
+[node name="CanLight19" parent="Lights" index="22" instance=ExtResource("2_rh055")]
 position = Vector2(6551, -34.0002)
 rotation = 0.764454
 
@@ -106,7 +114,7 @@ position = Vector2(2231, 205)
 position = Vector2(2472, 488)
 
 [node name="Ring8" parent="Rings" index="3" instance=ExtResource("2_u82bu")]
-position = Vector2(3233, 515)
+position = Vector2(3235, 500)
 
 [node name="Ring9" parent="Rings" index="4" instance=ExtResource("2_u82bu")]
 position = Vector2(3475, 114)

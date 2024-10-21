@@ -308,6 +308,7 @@ libraries = {
 
 [node name="HighScoreSubmissionControl" type="VBoxContainer" parent="."]
 visible = false
+z_index = 6
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

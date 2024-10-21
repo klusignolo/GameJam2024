@@ -14,10 +14,11 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if is_firing or not can_fire: return
 	is_firing = true
-	sfx_cannon.play()
 	player_body = body
 	player_body.visible = false
 	player_sprite.visible = true
+	
+	sfx_cannon.play()
 	var tween = get_tree().create_tween().set_parallel(true)
 	$sfx_cannon.play()
 	# Scoot the sprite into the cannon
