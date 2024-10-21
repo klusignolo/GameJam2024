@@ -12,7 +12,7 @@ func configure_silentwolf():
 	load_api_key()
 	if silentwolf_api_key == "": return
 	SilentWolf.configure({
-		"api_key": "",
+		"api_key": silentwolf_api_key,
 		"game_id": "threeringcircus",
 		"log_level": 0
 	})
@@ -39,7 +39,7 @@ func add_score(player_name: String, time_in_ms: int, level: int) -> void:
 	print("Score persisted successfully: " + str(sw_result.score_id))
 	
 	
-func _get_top_scores() -> Dictionary:
+func get_top_scores() -> Dictionary:
 	# Fetch leaderboard from SilentWolf
 	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(200
 	).sw_get_scores_complete
@@ -53,17 +53,26 @@ func _get_top_scores() -> Dictionary:
 			score.score -= OFFSET
 			associated_score_level += 1
 		score_dict[associated_score_level].append(
-			{ "player_name": score.player_name, "time_in_ms": score.score }
+			{ "player_name": score.player_name, "score": score.score }
 		)
-	return score_dict
-	
+	var sorted_scores = score_dict.duplicate()
+	for level_num: int in score_dict.keys():
+		var level_scores = score_dict[level_num]
+		level_scores.sort_custom(_sort_asc)
+		sorted_scores[level_num] = level_scores.slice(0,5,1)
+	return sorted_scores
+
+func _sort_asc(a, b) -> bool:
+	return a.score < b.score
+
 func check_if_high_score(level: int, score_to_check: float) -> bool:
 	if not is_configured: return false
-	var top_scores = await _get_top_scores()
+	var top_scores = await get_top_scores()
 	var top_level_scores = top_scores[level]
 	var is_high_score = false
+	if top_level_scores.size() < 5: return true
 	for score in top_level_scores:
-		if score_to_check > score.score:
+		if score_to_check < score.score:
 			return true
 	return false
 	

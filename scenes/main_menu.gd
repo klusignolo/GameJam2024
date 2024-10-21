@@ -4,12 +4,6 @@ var is_player_outside := false
 
 func _ready():
 	$AnimationPlayer.play("instructions_fade")
-	SilentWolf.configure({
-		"api_key": "zUsuLiZVRa7nnSzXzCWeF2IlrBfR3PaV8izxcbKt",
-		"game_id": "three ring circus",
-		"game_version": "1.0.0",
-		"log_level": 0
-	})
 
 func _process(_delta: float):
 	if is_player_outside:
