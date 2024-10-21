@@ -32,9 +32,11 @@ func _process(_delta: float) -> void:
 func _on_reached_finish_line():
 	UI.stop_level_timer()
 	UI.blink_level_timer()
-	Globals.high_scores[Globals.selected_level] = UI.level_timer.get_time_formatted()
 	$Cannon.can_fire = true
 	
+	var is_high_score = await Leaderboard.check_if_high_score(Globals.selected_level, UI.current_level_time)
+	if is_high_score:
+		UI.show_high_score_submission()
 	
 func set_player_near_tile_properties():
 	var down_position = tilemap.local_to_map($Player.global_position + Vector2(0, 32))

@@ -11,8 +11,6 @@ func _ready():
 	hide_balance_bar()
 	hide_phase_message()
 	Leaderboard.configure_silentwolf()
-	#Leaderboard.add_score("Kevin",25000,1)
-	#Leaderboard.get_top_scores(1)
 
 func hide_all_hud():
 	visible = false
@@ -55,3 +53,20 @@ func update_level_label():
 
 func update_float_remaining(float_remaining: float):
 	$FloatBarContainer/ProgressBar.value = float_remaining
+	
+var current_level_time: int:
+	get:
+		return 	$LevelTimerContainer.time
+
+func show_high_score_submission():
+	$HighScoreSubmissionControl.visible = true
+	
+func hide_high_score_submission():
+	$HighScoreSubmissionControl.visible = false
+
+func _on_high_score_edit_text_submitted(new_text: String) -> void:
+	var is_valid = true
+	if new_text == "": is_valid = false
+	if is_valid:
+		Leaderboard.add_score(new_text, $LevelTimerContainer.time, Globals.selected_level)
+		hide_high_score_submission()

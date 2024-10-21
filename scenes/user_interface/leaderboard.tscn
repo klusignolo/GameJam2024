@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://beqnlivhvrb1a"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/leaderboard.gd" id="1_ayook"]
+[ext_resource type="LabelSettings" uid="uid://c3qblx4byjcyy" path="res://themes/label_basic.tres" id="1_p7k45"]
+
+[node name="Leaderboard" type="HBoxContainer"]
+script = ExtResource("1_ayook")
+
+[node name="LevelOneContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LevelOneScoreLabel" type="Label" parent="LevelOneContainer"]
+layout_mode = 2
+text = "Level 1
+Kevin: 02:15.240
+--
+--
+--
+--"
+label_settings = ExtResource("1_p7k45")
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="LevelTwoContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LevelTwoScoreLabel" type="Label" parent="LevelTwoContainer"]
+layout_mode = 2
+text = "Level 2
+Kevin: 02:15.240
+--
+--
+--
+--"
+label_settings = ExtResource("1_p7k45")
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="LevelThreeContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LevelThreeScoreLabel" type="Label" parent="LevelThreeContainer"]
+layout_mode = 2
+text = "Level 3
+Kevin: 02:15.240
+--
+--
+--
+--"
+label_settings = ExtResource("1_p7k45")
+horizontal_alignment = 1

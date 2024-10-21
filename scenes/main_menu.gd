@@ -31,32 +31,21 @@ func _on_level_button_button_up() -> void:
 		Globals.selected_level += 1
 	$MenuButtonsContainer/MainMenuContainer/LevelButton.text = "Choose Level: " + str(Globals.selected_level)
 
-
 func _on_back_button_button_up() -> void:
 	$MenuButtonsContainer/MainMenuContainer.visible = true
 	$MenuButtonsContainer/ControlsContainer.visible = false
 	$MenuButtonsContainer/VolumeContainer.visible = false
-	$MenuButtonsContainer/ScoresContainer.visible = false
+	$MenuButtonsContainer/LeaderboardContainer.visible = false
 
 func _on_controls_button_button_up() -> void:
 	$MenuButtonsContainer/ControlsContainer.visible = true
 	$MenuButtonsContainer/MainMenuContainer.visible = false
 
-
 func _on_audio_button_button_up() -> void:
 	$MenuButtonsContainer/MainMenuContainer.visible = false
 	$MenuButtonsContainer/VolumeContainer.visible = true
 
-
-func _on_high_scores_button_button_up() -> void:
-	load_scores()
+func _on_leaderboard_button_button_up() -> void:
+	$MenuButtonsContainer/LeaderboardContainer/Leaderboard.load_high_scores()
 	$MenuButtonsContainer/MainMenuContainer.visible = false
-	$MenuButtonsContainer/ScoresContainer.visible = true
-	
-func load_scores():
-	var level_one_score = Globals.high_scores[1]
-	$MenuButtonsContainer/ScoresContainer/LevelOneScoreLabel.text = "Level 1: " + level_one_score
-	var level_two_score = Globals.high_scores[2]
-	$MenuButtonsContainer/ScoresContainer/LevelTwoScoreLabel.text = "Level 1: " + level_two_score
-	var level_three_score = Globals.high_scores[3]
-	$MenuButtonsContainer/ScoresContainer/LevelThreeScoreLabel.text = "Level 1: " + level_three_score
+	$MenuButtonsContainer/LeaderboardContainer.visible = true

@@ -2,10 +2,14 @@ extends Node
 
 # Constants for level score offsets
 const OFFSET = 1000000000
+const LEVEL_1_MAX = 1 * OFFSET
+const LEVEL_2_MAX = 2 * OFFSET
+const LEVEL_3_MAX = 3 * OFFSET
 var silentwolf_api_key: String = ""
 var is_configured = false
 
 func configure_silentwolf():
+	load_api_key()
 	if silentwolf_api_key == "": return
 	SilentWolf.configure({
 		"api_key": "",
@@ -33,35 +37,33 @@ func add_score(player_name: String, time_in_ms: int, level: int) -> void:
 	# Add score to SilentWolf leaderboard
 	var sw_result: Dictionary = await SilentWolf.Scores.save_score(player_name, score).sw_save_score_complete
 	print("Score persisted successfully: " + str(sw_result.score_id))
-
-# Method to retrieve top scores for a specific level from SilentWolf
-func get_top_scores(level: int, top_n: int = 10) -> void:
-	if not is_configured: return
 	
-	var offset = OFFSET * level
-	var start_score_range = offset
-	var end_score_range = offset + OFFSET
 	
+func _get_top_scores() -> Dictionary:
 	# Fetch leaderboard from SilentWolf
 	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(200
 	).sw_get_scores_complete
-	_on_leaderboard_fetched(sw_result.scores, {"level": level, "offset": offset})
-
-# Callback function once SilentWolf fetches the leaderboard
-func _on_leaderboard_fetched(scores: Array, metadata: Dictionary) -> void:
-	var level = metadata["level"]
-	var offset = metadata["offset"]
 	
+	var score_dict = {1: [],2: [],3: []}
 	var top_scores = []
-	for score in scores:
-		var adjusted_score = score.score - offset
-		top_scores.append({ "player_name": score.player_name, "time_in_ms": adjusted_score })
-
-	# Now top_scores contains the adjusted times for the specific level
-	print("Top scores for Level %d:" % level)
-	for score in top_scores:
-		print("Player: %s, Time: %d ms" % [score.player_name, score.time_in_ms])
-
-# Custom sort function to sort by score (if needed locally)
-func sort_by_score(a: Dictionary, b: Dictionary) -> int:
-	return int(a.score) - int(b.score)
+	for score in sw_result.scores:
+		var associated_score_level = 0
+		# subtract the offset until raw score remains
+		while score.score > OFFSET:
+			score.score -= OFFSET
+			associated_score_level += 1
+		score_dict[associated_score_level].append(
+			{ "player_name": score.player_name, "time_in_ms": score.score }
+		)
+	return score_dict
+	
+func check_if_high_score(level: int, score_to_check: float) -> bool:
+	if not is_configured: return false
+	var top_scores = await _get_top_scores()
+	var top_level_scores = top_scores[level]
+	var is_high_score = false
+	for score in top_level_scores:
+		if score_to_check > score.score:
+			return true
+	return false
+	
