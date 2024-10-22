@@ -9,7 +9,6 @@ var silentwolf_api_key: String = ""
 var is_configured = false
 
 func configure_silentwolf():
-	load_api_key()
 	if silentwolf_api_key == "": return
 	SilentWolf.configure({
 		"api_key": silentwolf_api_key,
@@ -18,15 +17,6 @@ func configure_silentwolf():
 	})
 	SilentWolf.configure_scores({"open_scene_on_close": "res://scenes/main_menu.tscn"})
 	is_configured = true
-
-func load_api_key() -> void:
-	var config_file = ConfigFile.new()
-	var error = config_file.load("res://config.cfg")
-
-	if error == OK:
-		silentwolf_api_key = config_file.get_value("API", "silentwolf_key", "")
-	else:
-		print("Error loading config file: %s" % str(error))
 
 # Method to add a score to SilentWolf leaderboard for a specific level
 func add_score(player_name: String, time_in_ms: int, level: int) -> void:
