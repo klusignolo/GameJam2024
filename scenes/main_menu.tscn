@@ -79,9 +79,40 @@ theme_override_constants/margin_bottom = 50
 
 [node name="MainMenuContainer" type="VBoxContainer" parent="MenuButtonsContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
+[node name="ControlsContainer" type="VBoxContainer" parent="MenuButtonsContainer/MainMenuContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MenuButtonsContainer/MainMenuContainer/ControlsContainer"]
+layout_mode = 2
+text = "Controls"
+label_settings = ExtResource("4_13yq3")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MenuButtonsContainer/MainMenuContainer/ControlsContainer"]
+layout_mode = 2
+text = "Move: left stick
+Rope Balance: right stick
+Crouch: right trigger
+Jump: A
+Big Jump: crouch + jump
+Phase through walls: B
+Float: Press A while airborn"
+label_settings = ExtResource("4_13yq3")
+
+[node name="BackButton" type="Button" parent="MenuButtonsContainer/MainMenuContainer/ControlsContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gul0r")
+theme_override_font_sizes/font_size = 18
+text = "Back"
+
 [node name="LevelButton" type="Button" parent="MenuButtonsContainer/MainMenuContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -89,6 +120,7 @@ theme = SubResource("Theme_6yk4f")
 text = "Choose Level: 1"
 
 [node name="ControlsButton" type="Button" parent="MenuButtonsContainer/MainMenuContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -97,6 +129,7 @@ theme_override_font_sizes/font_size = 18
 text = "Controls"
 
 [node name="AudioButton" type="Button" parent="MenuButtonsContainer/MainMenuContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -105,6 +138,7 @@ theme_override_font_sizes/font_size = 18
 text = "Audio Level"
 
 [node name="LeaderboardButton" type="Button" parent="MenuButtonsContainer/MainMenuContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -112,7 +146,12 @@ theme_override_fonts/font = ExtResource("3_gul0r")
 theme_override_font_sizes/font_size = 18
 text = "Leaderboard"
 
+[node name="HSeparator2" type="HSeparator" parent="MenuButtonsContainer/MainMenuContainer"]
+visible = false
+layout_mode = 2
+
 [node name="HSeparator" type="HSeparator" parent="MenuButtonsContainer/MainMenuContainer"]
+visible = false
 layout_mode = 2
 
 [node name="InstructionsLabel" type="Label" parent="MenuButtonsContainer/MainMenuContainer"]
@@ -121,27 +160,6 @@ theme_override_fonts/font = ExtResource("3_gul0r")
 theme_override_font_sizes/font_size = 10
 text = "Hop into the cannon to start"
 horizontal_alignment = 1
-
-[node name="ControlsContainer" type="VBoxContainer" parent="MenuButtonsContainer"]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MenuButtonsContainer/ControlsContainer"]
-layout_mode = 2
-text = "Move: left+right   or   a+d
-Rope Balance: UP+Down   OR   W+S
-Jump: Spacebar
-Big Jump: Down + Spacebar
-Phase: F"
-label_settings = ExtResource("4_13yq3")
-
-[node name="BackButton" type="Button" parent="MenuButtonsContainer/ControlsContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-focus_mode = 0
-theme_override_fonts/font = ExtResource("3_gul0r")
-theme_override_font_sizes/font_size = 18
-text = "Back"
 
 [node name="VolumeContainer" type="VBoxContainer" parent="MenuButtonsContainer"]
 visible = false
@@ -247,11 +265,11 @@ libraries = {
 "": SubResource("AnimationLibrary_4a5b6")
 }
 
+[connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/ControlsContainer/BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/LevelButton" to="." method="_on_level_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/ControlsButton" to="." method="_on_controls_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/AudioButton" to="." method="_on_audio_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/MainMenuContainer/LeaderboardButton" to="." method="_on_leaderboard_button_button_up"]
-[connection signal="button_up" from="MenuButtonsContainer/ControlsContainer/BackButton" to="." method="_on_back_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/VolumeContainer/VolumeBackButton" to="." method="_on_back_button_button_up"]
 [connection signal="button_up" from="MenuButtonsContainer/LeaderboardContainer/LeaderboardBackButton" to="." method="_on_back_button_button_up"]
 [connection signal="player_fired_away" from="Cannon" to="." method="_on_cannon_player_fired_away"]

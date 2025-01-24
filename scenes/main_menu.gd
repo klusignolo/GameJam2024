@@ -1,7 +1,31 @@
 extends Control
 
 var is_player_outside := false
+var last_input_was_controller = false
 
+func _input(event):
+	if event is InputEventKey:
+		last_input_was_controller = false
+		update_ui_hint()
+	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		last_input_was_controller = true
+		update_ui_hint()
+
+func update_ui_hint():
+	var phase_hint = "F" if !last_input_was_controller else "B"
+	var move_hint = "left / right" if !last_input_was_controller else "left stick"
+	var balance_hint = "up / down" if !last_input_was_controller else "right stick"
+	var jump_hint = "spacebar" if !last_input_was_controller else "A"
+	var crouch_hint = "right trigger"
+	var text = "Move: %s\n" % move_hint
+	text += "Rope Balance: %s\n" % balance_hint
+	text += "Crouch: %s\n" % crouch_hint
+	text += "Jump: %s\n" % jump_hint
+	text += "Big Jump: crouch + jump\n"
+	text += "Phase through walls: %s\n" % phase_hint
+	text += "Float: Press %s while airborn" % jump_hint
+	$MenuButtonsContainer/MainMenuContainer/ControlsContainer/Label.text = text
+	
 func _ready():
 	$AnimationPlayer.play("instructions_fade")
 	$MenuButtonsContainer/MainMenuContainer/LevelButton.grab_focus()
