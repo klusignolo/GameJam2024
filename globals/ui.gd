@@ -8,7 +8,20 @@ var orange: Color = Color("FBE7AB")
 @onready var level_timer = $LevelTimerContainer
 var score_submission_level = 0
 var score_submission_time = 0
+var last_input_was_controller = false
 
+func _input(event):
+	if event is InputEventKey:
+		last_input_was_controller = false
+		update_ui_hint()
+	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		last_input_was_controller = true
+		update_ui_hint()
+
+func update_ui_hint():
+	var action_hint = "F" if !last_input_was_controller else "X"
+	$InstructionLabelContainer/Label.text = "Press " + action_hint + " to Phase through walls"
+	
 func _ready():
 	hide_all_hud()
 	hide_balance_bar()

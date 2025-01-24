@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and can_jump:
 		sfx_jump.play()
-		if Input.is_action_pressed("down"):
+		if Input.is_action_pressed("crouch"):
 			velocity.y = BIG_JUMP_VELOCITY
 		else:
 			velocity.y += JUMP_VELOCITY
@@ -119,7 +119,7 @@ func set_animation():
 		else:
 			animation_player.play("moving")
 	else:
-		if is_on_rope or Input.is_action_pressed("down"):
+		if is_on_rope or Input.is_action_pressed("crouch"):
 			var animation = "balance" if is_on_rope else "squish"
 			animation_player.play(animation)
 		else:

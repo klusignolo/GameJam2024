@@ -5,7 +5,7 @@ const OFFSET = 1000000000
 const LEVEL_1_MAX = 1 * OFFSET
 const LEVEL_2_MAX = 2 * OFFSET
 const LEVEL_3_MAX = 3 * OFFSET
-var silentwolf_api_key: String = ""
+var silentwolf_api_key : = "zUsuLiZVRa7nnSzXzCWeF2IlrBfR3PaV8izxcbKt"
 var is_configured = false
 
 func configure_silentwolf():

@@ -4,7 +4,7 @@ var is_player_outside := false
 
 func _ready():
 	$AnimationPlayer.play("instructions_fade")
-
+	$MenuButtonsContainer/MainMenuContainer/LevelButton.grab_focus()
 func _process(_delta: float):
 	if is_player_outside:
 		$Camera2D.position.x = $Player.position.x - 640
